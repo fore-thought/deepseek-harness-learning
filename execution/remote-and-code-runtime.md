@@ -4,7 +4,7 @@ tags: [dsh, code-runtime, lsp, e2b, ptc]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/{code-runtime,lsp,e2b}/* + docs/subsystems/{code-runtime,lsp}.zh.md；子代理D调研"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 代码运行、LSP 与远程世界
@@ -21,7 +21,8 @@ run_code 之外的一切 JS 执行都收敛到这个 seam（PTC/"程序化工具
   worker 内捕获 console/stdout/stderr → LogBuffer **按外层 JSON 字节预算即时传回**；
   binding 调用走关联 id 消息桥（**host 视入站为敌意**）；
   预算=实测 busy-time（`eventLoopUtilization` 25ms 轮询）+ wall 上限 +
-  堆上限（溢出→worker-exit）+ 输出上限；
+  堆上限（**仅 V8 old-space 溢出触发 worker-exit**；TypedArray 等 external memory
+  不计入，只撞 compute 预算——概览篇口径的收窄修正 [MEASURED]）+ 输出上限；
 - **诚实的隔离声明**：`isolation` 只读描述符**仅是诊断标签不构成安全承诺**
   （containment 非安全边界）——与 fs-sandbox 的自述同一口径。这类"文档不夸大"
   的纪律贯穿全库，值得移植时原样继承。
@@ -53,3 +54,5 @@ preset 行）：工具既能被模型逐个调用，也能以编程面暴露给 
 - 执行世界配对总论：[文件系统与沙箱](./filesystem-and-sandbox.md)
 - 工具流水线：[工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
 - 远程化后 UI 如何跟进：[host/client 分层与 API 网关](../platform/host-client-boundary.md)
+- run_code 桥/调度器/敌意闸与 21 项真机实测：[PTC 与 code-runtime 内幕](../deep/ptc-code-runtime.md)
+- `ctx.remote` 背后的协议与生成器：[typert 远程协议与代码生成](../deep/typert-remote-protocol.md)

@@ -4,7 +4,7 @@ tags: [dsh, cordis, boot, profile]
 status: active
 license: CC-BY-SA-4.0
 evidence: "vendor/{loader,include,hmr}、packages/{boot,bundle}/*；docs/architecture；子代理A"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 插件组装与启动：从 YAML 到运行中的产品
@@ -21,8 +21,9 @@ updated: 2026-09-04
   并实现 **patch 语义**：按 `id` 定位条目、**整 config 替换**（不深合并）、
   `insert` 插新行。表达式语法 `!!js` 在插件上下文插值
   （如 `disabled: "!!js !ctx.webServer"`）；Include 保留嵌套行表达式直到目标行激活。
-- **事务化更新**：`Group` 对一批 create 先全量执行、失败逆序回滚；
-  条目自我卸载（自检服务不可用）会把 `disabled: true` 写回 YAML。
+- **事务化更新**：`Group` 对一批 create 先并行全量执行；失败的精确回滚形态 =
+  逆序移除新增行 + **重建全部旧行**；条目自我卸载（自检服务不可用）会把
+  `disabled: true` 写回 YAML（真机证实：`!!js` 表达式写回时原样保留）。
 
 ## 产品即分层叠加：profile 与 bundle
 
@@ -69,7 +70,8 @@ updated: 2026-09-04
 
 `vendor/hmr`：文件监视 → 借 Node ESM 内部 loadCache/ModuleJob 失效模块 → 重挂该条目。
 任何插件的注册都是 effect（[Cordis 内核](./cordis-kernel.md)），所以"卸载→重载" = 逆序回卷 + 重放，
-产品状态（会话日志）不受影响。**这是 JS 运行时私有技巧**，Java 对应物（classloader
+产品状态（会话日志）不受影响。三级决策表与双缓存失效细节见 [Cordis 热重启与热重载内幕](../deep/cordis-hot-reload.md)。
+**这是 JS 运行时私有技巧**，Java 对应物（classloader
 热替换）代价高得多——移植时的真实架构分叉点。
 
 ## 相关

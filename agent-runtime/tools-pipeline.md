@@ -4,7 +4,7 @@ tags: [dsh, tools, pipeline, guard]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/core/tools/src；docs: tool-execution-pipeline / tools / scope；子代理B"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 工具注册表与执行流水线
@@ -72,3 +72,4 @@ updated: 2026-09-04
 - schema 怎么进提示词：提示词组装（`ctx.systemPrompt`：分段 section + order +
   `complete` 独占语义 + tools provider，按作用域链合并渲染）
 - 审批应答的传输：[host/client 分层与 API 网关](../platform/host-client-boundary.md)
+- ptc/both 执行面坍缩与 run_code 桥内幕：[PTC 与 code-runtime 内幕](../deep/ptc-code-runtime.md)

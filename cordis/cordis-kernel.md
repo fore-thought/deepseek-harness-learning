@@ -4,7 +4,7 @@ tags: [dsh, cordis, framework]
 status: active
 license: CC-BY-SA-4.0
 evidence: "vendor/cordis/src 全部 9 文件本人直读；docs/cordis-primer.zh.md"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # Cordis 内核：上下文、服务与纤绳（fiber）
@@ -22,7 +22,7 @@ updated: 2026-09-04
 | 上下文 | 依赖容器，**运行时是 Proxy**：普通属性读走服务解析；`extend/isolate/intercept` 派生子作用域 | `context.ts`、`reflect.ts` |
 | 依赖声明 | `inject` 列所需服务，齐了才激活；加载顺序=依赖关系，**没有手工启动序列** | `registry.ts`、`fiber.ts` |
 | 类型化事件 | 5 种分发模式（下表）；监听器随所属 fiber 自动摘除 | `events.ts` |
-| 可逆副作用 | `ctx.effect(fn, label)` 返回 disposer；fiber 卸载时**逆序**释放 | `fiber.ts` |
+| 可逆副作用 | `ctx.effect(fn, label)` 返回 disposer；fiber 卸载时**逆序启动、并发完成**（单 effect 自身内部才是严格逆序串链——深读澄清） | `fiber.ts` |
 
 ## 事件分发模式（`events.ts`）
 
@@ -74,7 +74,9 @@ stateDiagram-v2
 ```
 
 - **epoch 指纹**：`':' + 依赖fiber.uid` 拼接串。任一依赖换实现 → 串变 → 本 fiber
-  自动 unload→reload。这就是"换个 patch 行就换掉整个子系统"且不留残余状态的机制。
+  自动 unload→reload **就地重放**（不经过 PENDING 停靠，PENDING 只在依赖彻底缺席时出现）。
+  这就是"换个 patch 行就换掉整个子系统"且不留残余状态的机制；全链内幕见
+  [Cordis 热重启与热重载内幕](../deep/cordis-hot-reload.md)。
 - **effect 树**：每个 effect 带 label 与 children（`EffectMeta`），可整树 dump 诊断；
   生成器 effect（`function* { yield disposer }`）支持流式注册。
 - **配置校验**：插件声明 `Config`（任何实现 `@standard-schema/spec` 的校验器，
@@ -99,5 +101,6 @@ stateDiagram-v2
 ## 相关
 
 - 上层组装（loader/patch/profile）：[插件组装与启动](./plugin-composition.md)
-- 主干如何消费这些服务：[turn/step 主循环](../agent-runtime/turn-step-loop.md) · [工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
+- 主干如何消费这些服务：[turn/step 主循环](../agent-runtime/turn-step-loop.md)
+  · [工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
 - Java 移植观察：[Java 移植观察地图](../java-porting-map.md)

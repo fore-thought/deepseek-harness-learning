@@ -4,7 +4,7 @@ tags: [dsh, session, event-sourcing]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/core/session/src 直读 + docs/subsystems/session.zh.md + 子代理B/E调研"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 会话事件日志：整个 harness 的唯一真源
@@ -40,7 +40,9 @@ updated: 2026-09-04
   `assistant/message`、`tool/result`；`deriveMessages()` 从日志投影出模型历史。
 - `SurfaceOp = 'append' | { op:'replace', start, end }`：**压缩改写历史不是删日志，
   而是追加一个带 replace 的检查点事件**——日志仍完整，表层被区间替换；
-  `replaceGeneration` 递增标识代际。
+  `replaceGeneration` 递增标识代际。区间**双端闭**、按表层位置定位，替换节点占据
+  被 shadow 区间的起点位置（`start` 数值可大于 `end`）；精确语义见
+  [表层改写与压缩](../deep/surface-compaction.md)。
 - 铁律"**模型可见即已记录**"：任何抵达模型请求的输入都必须能从日志重建，
   由运行时不变量断言（见 [插件组装与启动](../cordis/plugin-composition.md) 的 invariants 机制）。
 
@@ -68,5 +70,8 @@ checkpoint→tail replay→full refold 的**读阶梯**，冷启动不必全量�
 
 ## 相关
 
-- 谁在写这些事件：[turn/step 主循环](./turn-step-loop.md) · [会话持久化与存储](../platform/session-persistence.md)（怎么落盘）
+- 谁在写这些事件：[turn/step 主循环](./turn-step-loop.md)
+  · [会话持久化与存储](../platform/session-persistence.md)（怎么落盘）
 - 投影怎么送到浏览器：[host/client 分层与 API 网关](../platform/host-client-boundary.md)
+- 表层折叠/压缩事务全细节：[表层改写与压缩](../deep/surface-compaction.md)
+- 落盘格式与撕裂尾恢复实测定量：[持久化格式与崩溃恢复](../deep/persistence-crash-recovery.md)

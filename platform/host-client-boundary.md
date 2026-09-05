@@ -4,7 +4,7 @@ tags: [dsh, host, client, remote, typert]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/{api,host,client,typert}/*；docs: api-gateway / web-client；子代理E"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # host/client 分层与 API 网关
@@ -75,3 +75,5 @@ chat 节点（`ConversationNodeDefinition` + keyed renderer）、渲染槽位
 - SDK/ACP 两个进程外面孔：[应用壳](./web-cli-boot.md)
 - 投影基线从哪来：[会话事件日志](../agent-runtime/session-event-log.md)
 - 提问/审批的领域语义：[人机问答与反馈](../augmentation/questions-and-answers.md)
+- 协议与代码生成的源码级内幕（含概览篇三处修正的完整证据链）：
+  [typert 远程协议与代码生成](../deep/typert-remote-protocol.md)

@@ -4,7 +4,7 @@ tags: [dsh, fs, sandbox, escalation]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/{fs,sandbox}/* + docs/subsystems/{filesystem,sandbox}.zh.md；子代理D调研"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 文件系统与沙箱：一个执行世界
@@ -57,7 +57,9 @@ argv 限制（sandbox.zh.md 的清晰边界）。
   内核无法强制则**拒绝运行**（fail-closed），失败退出码 125。
 - Windows 侧：WRITE_RESTRICTED 令牌 + 能力 SID 的 DACL ACE
   （`sandbox-windows-acl`，koffi FFI）；**工作区 SID=路径哈希确定性生成**
-  （常驻、精确 ACE 跳过让后续 provision O(1)），temp SID 每会话随机、dispose 撤销。
+  （规范化路径 SHA-256 → 两个 u32 取模 → `S-1-4-<x>-<y>`；深读实算与实机
+  NTFS ACE 逐字节一致 [MEASURED]。常驻、精确 ACE 跳过让后续 provision O(1)），
+  temp SID 每会话随机（域分隔防兄弟会话互借）、dispose 撤销。
 
 ## fs 内进程围栏（`fs-sandbox`）
 
@@ -91,3 +93,5 @@ danger 透传；read-only 抛 `FS_SANDBOX_DENIED`；workspace-write **重规范�
 - 进程/shell/终端：[进程、shell 与终端](./shell-process-terminal.md)
 - code-runtime 与 LSP：[代码运行、LSP 与远程世界](./remote-and-code-runtime.md)
 - 档位词汇的 UI 半边：[人机问答与反馈](../augmentation/questions-and-answers.md)
+- 探测仲裁、令牌构造、denial/runner-failure 分类学与 landlock 启动器全细节：
+  [沙箱执行内幕](../deep/sandbox-execution.md)

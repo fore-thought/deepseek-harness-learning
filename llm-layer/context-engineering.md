@@ -4,7 +4,7 @@ tags: [dsh, compaction, token-meter, attachment, spill]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/{token-meter,compaction,attachment,spill} + docs 同名子系统页；子代理C调研"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 上下文工程：计量、压缩、附件与溢出
@@ -34,7 +34,8 @@ updated: 2026-09-04
 2. `selectCompactableRange`：头部锚定、保留尾部（默认 retainRatio 0.16），
    边界必须 **tool-pairing 平衡**（`toolPairingBalancedBefore/After`）——
    绝不把 tool-call 和它的 result 拆进不同侧；
-3. append `compaction/start`（**锁=日志上不配对的事件对**，崩溃可检测、语义清晰）；
+3. append `compaction/start`（**锁=日志上不配对的事件对**，崩溃可检测、语义清晰；
+   恢复/fork 继承的孤儿括号被更新的 `session/end-seed` 豁免，不锁死新生命周期）；
 4. 摘要调用**复用会话自身 system/tools 前缀**（`purpose:'compaction'`）——
    最大化提供方前缀缓存命中；指令作为最后一条 user 消息；产
    `<compacted-summary>` 文本；
@@ -65,3 +66,4 @@ updated: 2026-09-04
 - 计量喂给谁：[turn/step 主循环](../agent-runtime/turn-step-loop.md) 的压力检查；
 - provider 复用意图：[LLM 层](./llm-vocabulary.md)；
 - 表层 replace 语义：[会话事件日志](../agent-runtime/session-event-log.md)
+- 事务全序、常量组、影子价协议与真机验证：[表层改写与压缩](../deep/surface-compaction.md)

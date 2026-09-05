@@ -4,7 +4,7 @@ tags: [dsh, persistence, storage, jsonl]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/{session,storage}/* + docs/subsystems/{persistence,storage}.zh.md；子代理E调研"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 会话持久化与存储：日志落盘的工程细节
@@ -18,9 +18,13 @@ updated: 2026-09-04
   **不经 loop 发布的会话不持久化**（fork 只在"loop 拥有的会话"上做，防止半路会话）。
   跨进程租约是**已记录的限制**（persistence.zh.md），不是缺失。
 - **写路径**：每条 `session/event` 按会话 id 路由进活跃句柄的
-  **有界 write-behind 批窗口**（首事件开窗，后续加入不重置截止）→ 到期批量 append；
+  **有界 write-behind 批窗口**（200ms，`LIVE_WRITE_BATCH_MAX_DELAY_MS` [MEASURED]；
+  首事件开窗、后续加入不重置截止）→ 到期批量 append；
   `session/flush` parallel 事件 = 取消等待排空 + 错误观察检查点；
-  `session/disposed` = 最终排空 + close。**append 尽力而为、flush 才是屏障**。
+  `session/disposed` = 最终排空 + close。"append 尽力而为、flush 才是屏障"是
+  **接缝契约的上限**——JSONL 实现的显式 append 每帧同步 fsync（失败截回回滚），
+  真正的批缓冲只发生在事件路由窗口；全链见
+  [持久化格式与崩溃恢复](../deep/persistence-crash-recovery.md)。
 - **撕裂尾**（crash 半行）永不到达读取方（读侧修复归 reader；写所有权下由
   `interruptedTurnClosers` 补齐回写，见 [会话事件日志](../agent-runtime/session-event-log.md)）；实体化延迟到
   首次 append/flush（不产生空文件垃圾）。

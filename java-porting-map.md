@@ -4,7 +4,7 @@ tags: [dsh, java, porting]
 status: active
 license: CC-BY-SA-4.0
 evidence: "六路调研摘要第 6 节 + 本人 cordis 内核直读"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # Java 移植观察地图
@@ -72,13 +72,16 @@ flowchart LR
 - `AbortController/Signal(+reason)` 贯穿全链的协作取消 → `Future.cancel(mayInterruptIfRunning)`/
   structured scope；DSH 的"signal 可换不可去""三源融合"语义要逐点重做；
 - HMR（ESM loadCache 失效）→ JVM 无对等物（classloader 游戏）；
-  **可放弃**：patch 热重启子系统这层价值在配置组合，不在模块级热替换（观察：
-  DSH 自己也规定 headless/sdk 只应用一次配置）；
+  **可放弃**：patch 热重启子系统这层价值在配置组合，不在模块级热替换（深读证实：
+  DSH 的 live profile 默认跑 watch-only、config-only 的 HMR（零模块根），源码级热替换
+  是 base bundle 显式开启的 dev 特性；headless/sdk 更是只在启动应用一次 [MEASURED]）；
 - `worker_threads + node:vm`（workflow realm 隔离）→ 虚拟线程 + 真子进程/独立 JVM 沙箱；
   ——[VERIFY 执行群摘要补充；对应 DSH 里远程沙箱提供方 e2b 也走"换执行世界"正路]；
 - POSIX 文件语义（`'wx' 0o600` 独占创建、realpath 唯一性）→ Java NIO
-  `StandardOpenOption.CREATE_NEW` + `PosixFilePermissions`（POSIX/NTFS ACL 双态
-  需另核，Windows 语义 [VERIFY]）；
+  `StandardOpenOption.CREATE_NEW` + `PosixFilePermissions`。DSH 在 Windows 侧的
+  答案深读已给足：不靠 rename，实体化=mkdtemp 暂存兄弟 + `MoveFileExW
+  MOVEFILE_WRITE_THROUGH` 逐级发布、`\\?\` 命名空间全程 [MEASURED 源码直读]；
+  JVM `Files.createLink`/`ATOMIC_MOVE` 在 NTFS 的等价语义仍需实测 [VERIFY]；
 - `koffi` FFI 直调 `advapi32`（Windows 沙箱令牌/ACE）、`node-pty` + `@xterm/headless`
   （PTY 与仿真渲染）、npm `os/cpu` 平台包分发原生二进制（landlock-run launcher）
   → Java 侧对应 JNA/Panama(FM) + 自带构建矩阵，属体力活而非概念活；

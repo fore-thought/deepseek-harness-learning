@@ -4,7 +4,7 @@ tags: [dsh, subprocess, shell, terminal]
 status: active
 license: CC-BY-SA-4.0
 evidence: "packages/{subprocess,shell,terminal}/*；docs 同名页；子代理D"
-updated: 2026-09-04
+updated: 2026-09-05
 ---
 
 # 进程、shell 与终端：从一次性 spawn 到持久 PTY
@@ -60,5 +60,7 @@ updated: 2026-09-04
 ## 相关
 
 - argv 包装与提权：[文件系统与沙箱](./filesystem-and-sandbox.md)
+- 沙箱后端与拒绝分类内幕（含 pwsh-sandbox 镜像与 ENCODING_PREAMBLE 互证）：
+  [沙箱执行内幕](../deep/sandbox-execution.md)
 - 工具六段流水线挂点：[工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
 - 后台任务生命周期：[后台任务与外部触发](../augmentation/background-and-triggers.md)
