@@ -22,7 +22,7 @@ updated: 2026-09-05
 | `turn/start · turn/end` | 轮次开闭；`turn/end` 带 `TurnEndReasonMap`（completed/aborted/blocked/error/max-tokens/interrupted） |
 | `step/start · step/end` | 步骤（一次模型请求+其工具调用） |
 | `user/message` | 用户/注入消息（唯一"模型可见新输入"通道） |
-| `assistant/chunk` | 原始流式分块（UI 保真与回放的原料） |
+| `assistant/chunk` | 原始流式分块（UI 保真与回放的原料；**代次敏感**——v2 持久词表已无顶层 chunk 行，released dispositions 删籍，见[派生侧深读](../deep/session-projection-telemetry.md)） |
 | `assistant/message` | 折叠后的助手消息（usage 同条持久） |
 | `tool/call · tool/result` | 工具调用与结果（`sourceEventSeqs` 回指 call） |
 | `request/header` | 请求纪元头：渲染后的 system + tools + 模型配置（EpochHeader） |
@@ -32,7 +32,8 @@ updated: 2026-09-05
 信封公共字段：`seq`（会话内单调）、`time`、`ignorable?`（前向兼容标记：
 老读取方可安全跳过）、`surfaceOp?`、`sourceEventSeqs?`（事实间因果回指）。
 各子系统经 **声明合并** 往里加事件（`agent/inbox/spliced`、`compaction/*`、
-`llm/retry`、`hook/*`…），**扩展事件类型 = 扩展持久化协议**，无需改 session 包。
+`llm/retry`、`hook/*`、`session/title*`、`session-log-deepseek/delivery-accepted`…），
+**扩展事件类型 = 扩展持久化协议**，无需改 session 包。
 
 ## Surface（表层）：模型实际看到什么
 
@@ -44,7 +45,8 @@ updated: 2026-09-05
   被 shadow 区间的起点位置（`start` 数值可大于 `end`）；精确语义见
   [表层改写与压缩](../deep/surface-compaction.md)。
 - 铁律"**模型可见即已记录**"：任何抵达模型请求的输入都必须能从日志重建，
-  由运行时不变量断言（见 [插件组装与启动](../cordis/plugin-composition.md) 的 invariants 机制）。
+  由运行时不变量断言（机制速写见 [插件组装与启动](../cordis/plugin-composition.md)；
+  注册表与 39 伴生的执法全貌见 [不变量注册表](../deep/invariants-registry.md)）。
 
 ## 投影框架（读侧的通用原语）
 
@@ -61,6 +63,9 @@ checkpoint→tail replay→full refold 的**读阶梯**，冷启动不必全量�
 - resume 时 `interruptedTurnClosers`：对未闭合轮在**写句柄内**合成补齐
   （缺果的 `tool/result`、未闭合 `step/end`、`turn/end{interrupted}`）——
   修复回写只允许发生在写所有权之下；冷读者只做内存配平、不改盘。
+  归因：函数在 `core/session/src/repair.ts`（纯函数），调用点
+  `agent-loop.resumeWith` 经同一写句柄 append；与[持久化篇](../deep/persistence-crash-recovery.md)
+  的**物理撕裂尾修复**（读侧行级）正交——一个配平语义、一个缝合字节。
 
 ## 为什么这样设计
 
@@ -75,3 +80,8 @@ checkpoint→tail replay→full refold 的**读阶梯**，冷启动不必全量�
 - 投影怎么送到浏览器：[host/client 分层与 API 网关](../platform/host-client-boundary.md)
 - 表层折叠/压缩事务全细节：[表层改写与压缩](../deep/surface-compaction.md)
 - 落盘格式与撕裂尾恢复实测定量：[持久化格式与崩溃恢复](../deep/persistence-crash-recovery.md)
+- 纪元头比较语义（initial/resume/change/series）与双通道落点：
+  [提示词组装与上下文](../deep/prompt-assembly-context.md)
+- 投影/标题/遥测/格式代次的实现层全解：[派生侧深读](../deep/session-projection-telemetry.md)
+- 查询侧的 surface 三态与派生：与模型历史推导共用同一 `foldSurface`、不发明标签——
+  [会话查询内幕](../deep/session-query.md)

@@ -20,7 +20,7 @@ llm-layer/       模型层（词汇与适配器 / 计量压缩附件）
 platform/        平台（持久化 / host-client 网关 / 应用壳）
 execution/       执行世界（fs 沙箱 / 进程终端 / code-runtime·LSP·E2B）
 augmentation/    增强层（委派编排 / 技能挂载 / 自组织 / 问答 / 后台 / 配置）
-deep/            专题深读（源码级走读与真机实测）
+deep/            专题深读（29 篇：源码级走读与真机实测，组级全覆盖 packages/ 51 组）
 ```
 
 ## 许可与署名（Notice）

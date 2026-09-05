@@ -18,7 +18,8 @@ updated: 2026-09-04
   `expectedRevision` 拒陈旧写**（CAS 又一处一致姿势）；
 - `watch`/`settings/document-updated|updated` 事件推外部编辑
   （settings-file provider 监视 `$DSH_HOME/settings.yaml`）；
-- 密钥在设置里**永远只是引用**（见下），`redactSecrets` 给一切外显路径兜底。
+- 密钥在设置里**永远只是引用**（见下），`redactSecrets` 给一切外显路径兜底——
+  但 union/transform 分支是**源码 TODO 自报的 fail-open 缝**，非绝对兜底（深读口径）。
 
 ## `ctx.credentials`：值与引用分离
 
@@ -43,6 +44,9 @@ updated: 2026-09-04
 `NO_PROVIDER` 类显式失败把决定权送回人（[人机问答与反馈](./questions-and-answers.md)）。
 
 ## 相关
+
+- 配置面深读（层叠解析/写链四细节/信任栈/三段写恢复）：
+  [配置面深读](../deep/settings-credentials-workspace.md)
 
 - `$DSH_HOME` 目录布局与 profile：[插件组装与启动](../cordis/plugin-composition.md)
 - 密钥文件与 gitignore 纪律：组级 standards.md §2（工作区外只读引用）

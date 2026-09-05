@@ -13,10 +13,14 @@ updated: 2026-09-05
 
 - 接口：`create/open/stat/list` + 逐会话 `SessionHandle`
   （`read/append/flush/close`）；后端 JSONL 实现
-  （`session-persistence-jsonl`：`session.jsonl.zstd` 帧）。
+  （`session-persistence-jsonl`：zstd 帧；现行文件名按格式版本代次
+  `session.v{N}.jsonl.zstd`，多代次共存取最高 canonical，v0 基线时代命名
+  `session.jsonl.zstd`——见深读勘误）。
 - **进程内单写者**：句柄是唯一写门；agent-loop 是句柄获取/发布点——
   **不经 loop 发布的会话不持久化**（fork 只在"loop 拥有的会话"上做，防止半路会话）。
-  跨进程租约是**已记录的限制**（persistence.zh.md），不是缺失。
+  跨进程租约**本 build 已实现**（`lease.ts`：POSIX flock+锁后 inode 复核 /
+  Win32 命名信号量，零到期设计——"单写者"从进程内约定升为内核仲裁；早期
+  "已记录的限制"口径已过时，内幕见深读派生侧篇的写租约节）。
 - **写路径**：每条 `session/event` 按会话 id 路由进活跃句柄的
   **有界 write-behind 批窗口**（200ms，`LIVE_WRITE_BATCH_MAX_DELAY_MS` [MEASURED]；
   首事件开窗、后续加入不重置截止）→ 到期批量 append；
@@ -53,6 +57,9 @@ updated: 2026-09-05
   session 寻址适配与跨会话快照准备（[委派与编排](../augmentation/subagent-orchestration.md) 的 fork 与 @ 引用靠它）。
 
 ## 相关
+
+- 日志读侧的查询/导出消费者群（逻辑语料、FTS5 派生索引、只读工具面）：
+  [会话查询内幕](../deep/session-query.md)——注意全文搜索默认 `:memory:`+`openAt: never`，整组是 opt-in。
 
 - 投影框架与读阶梯：[会话事件日志](../agent-runtime/session-event-log.md)
 - 事件怎么从这些读侧原语摆到浏览器：[host/client 分层与 API 网关](./host-client-boundary.md)

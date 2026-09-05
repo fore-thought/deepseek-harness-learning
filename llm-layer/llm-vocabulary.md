@@ -67,10 +67,14 @@ idle watchdog（默认 5 分钟；提供方 TIMEOUT 与调用方 ABORTED 严格�
 `ResolvedRetryPolicy`（normal{maxRetries,retryableCodes,退避+jitter} / always 两模式）→
 **先 append `llm/retry`（可取消等待之前先持久化）再等待** → 返回
 `{kind:'retry'}` 不调 next → 同轮换新步骤号续跑。提供方 `Retry-After` 优先于
-本地指数退避；重试计数存 session-projection（`step/start`/`turn/end` 清零）。
+本地指数退避；重试计数存 session-projection（`step/start`/`turn/end` 清零）。两事件链
+（`llm/retry` 先持久→可取消等待→`llm/retry-started`）与 175 行不变量校验器见深读。
 
 ## 相关
 
 - 谁驱动 stream：[turn/step 主循环](../agent-runtime/turn-step-loop.md)
 - token 计量/压缩/附件/spill：[上下文工程](./context-engineering.md)
+- 内幕深读（注册表三本账、流协议裁决、双适配器对照）：
+  [LLM 适配器与计量内幕](../deep/llm-adapters-metering.md)
+- 附件→模型的字节旅程：[附件与溢出](../deep/attachment-spill.md)
 - 提供方界面（模型选择/定价）怎么到浏览器：[host/client 分层与 API 网关](../platform/host-client-boundary.md)

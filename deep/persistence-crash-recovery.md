@@ -19,11 +19,11 @@ updated: 2026-09-05
 
 | 概览篇说法 | 深读结论 |
 |---|---|
-| write-behind 批窗口"参数未给出" | 已证实 **200ms**：`LIVE_WRITE_BATCH_MAX_DELAY_MS = 200`（storage.ts:34）；首事件开窗、后续事件**不重置**截止 [MEASURED] |
+| write-behind 批窗口"参数未给出" | 已证实 **200ms**：`LIVE_WRITE_BATCH_MAX_DELAY_MS = 200`（storage.ts:35，2026-09-05 复核实证，行号自 :34 漂 1）；首事件开窗、后续事件**不重置**截止 [MEASURED] |
 | "append 尽力而为、flush 才是屏障" | 这是**接缝契约的上限**；JSONL 后端的显式 append 本身即同步 fsync 持久（index.ts:822-856），flush 只补实体化。真正的批缓冲只发生在事件路由通道（`session/event` → `enqueueLive` 的 200ms 窗） |
 | 实体化 = "临时文件→rename" 直觉 | **修正**：POSIX 用 **link()+unlink() 而非 rename()**——link 对已存在目标失败 = 防两进程同 id 互相覆盖（index.ts:704-761）；Windows 用 `MoveFileExW` + `MOVEFILE_WRITE_THROUGH` |
 | "撕裂尾永不到达读取方" | 定量闭环：读侧双层修复（帧级+行级）+ 写侧首 mutation 消费；恢复能力是**压缩块粒度全有或全无**（见「崩溃恢复」节） |
-| "跨进程租约是已记录的限制" | 更精确：**已声明未实现**——`SessionOwnershipLostError` 存在（errors.ts:52-67 明示）但现有后端从无抛点 |
+| "跨进程租约是已记录的限制" | 深读当时口径"已声明未实现"；**本 build 已实现**（`lease.ts`：POSIX flock+锁后 inode 复核 / Win32 命名信号量，零到期设计）——"单写者"升为内核仲裁；`SessionOwnershipLostError` 仍定义、仍无抛点（无到期路径可触发）。机制全解见[派生侧深读](./session-projection-telemetry.md)「写租约」节 |
 | zstd 帧格式（概览篇未展开） | 拼接帧容器：1 帧 = 1 次落盘批次，checksum 开启，非 single-segment（zstd.ts:111-120） |
 | revision 令牌（概览篇未展开） | stat 五元组拼接，**不是内容哈希**（index.ts:108-121） |
 | withFileLock（概览篇未展开） | 会话日志后端**不使用** atomic-write 包；`.lock` 兄弟文件锁留给 settings/credentials 等消费方 |
@@ -170,7 +170,7 @@ surface 投影统计精确相等（276）；`sourceEventSeqs` 248 条、其中�
 | 6234 帧稳定快照 | 存储行 8305 / 逻辑事件 34180 / seq 0..34179 全连续 | 官方解码 **0 失败** |
 | `request/header` | 全程仅 1 行、35230B = 最大单行 | 125 步未再写纪元头 ⇒ 头按"渲染后 prompt 纪元变化"才追加 |
 | 事件类型词汇表 | `KNOWN_SESSION_EVENT_TYPES` = 51 | 本 build 快照计数 [MEASURED] |
-| 格式版本 | `SESSION_FORMAT_VERSION` = 0 | [MEASURED] |
+| 格式版本 | 基线快照 = 0；**现行 build = 2**（2026-09-05 复核 `core/session/types.ts:86`；迁移链 v0→v1→v2 与格式目录已入仓） | 两时点 [MEASURED]，快照归属见左 |
 
 类型分布（5912 帧快照）：未打包 `assistant/chunk` 行 1692（block-start/end、usage、
 finish 不打包）；`step` 123×3、`tool` 123×2、`agent/inbox/spliced` 42、

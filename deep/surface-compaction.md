@@ -53,7 +53,8 @@ updated: 2026-09-05
 - 唯一规则 `deriveEventMessage`：`user/message`=data 逐字、`tool/result`=`data.message`、
   `assistant/message`=`data.message` 且 **content 为空→null**——max-tokens 步骤的空 assistant 轮只是
   usage 宿主，不得注入模型可见序列；其余 null。投影层不得重新加框（如 `<context>`），framing 归生产者
-  （`<system-reminder>` 由 agent-instructions 烤进 content）。
+  （`<system-reminder>` 由 agent-instructions 烤进 content；该框架、预算与触敏
+刷新机制的详述见[提示词组装与运行时上下文](./prompt-assembly-context.md)）。
 
 ## chunk packed row：存储层的行压缩（`chunk-rows.ts`）
 
@@ -203,3 +204,5 @@ needs a signal beyond the log"），未见测试复现。
 - jsonl 写路径与 flush 屏障：[会话持久化与存储](../platform/session-persistence.md)
 - 括号锁 / end-seed 豁免的崩溃面姊妹篇：[持久化与崩溃恢复](./persistence-crash-recovery.md)
 - `startsRequestSeries` 的唯一生产者：[自组织：goal、plan mode、todo、schedule](../augmentation/goal-plan-todo.md)
+- token-meter 两轨表面与 shadow-price 协议展开：[LLM 适配器与计量内幕](./llm-adapters-metering.md)
+- 投影/缓存/格式代次的派生侧姊妹篇：[派生侧深读](./session-projection-telemetry.md)

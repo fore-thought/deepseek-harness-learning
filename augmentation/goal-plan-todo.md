@@ -15,7 +15,8 @@ updated: 2026-09-04
 ## goal：同会话完成目标（`ctx.goals`）
 
 - `GoalService`：目标附着在**现有会话**上，`GoalRef{id, revision}` **CAS**
-  演进；phase = `active|paused|blocked|complete`（blocked 带策略 code+说明）。
+  演进；phase = `active|paused|blocked|complete`（blocked 带策略 code+说明；驱动器另有
+三个自动 block 机器码：round-limit / queue-failed / prompt-rejected）。
 - 持久事件 `goal/change` = **全量快照**（revision+1）或墓碑；实时
   `goal/changed` 走 Scoped 派发（按 agent 过滤）。
 - **Goal Round**：驱动器 `goal-round-driver` 是 `agent/turn-stopping`
@@ -49,6 +50,9 @@ updated: 2026-09-04
 - fork 按 `inheritedEventCount` 折叠：**保留历史、不接管父的活动提醒**。
 
 ## 相关
+
+- 四域内幕（CAS 转移表/激活边沿缴械/驱动器全链/DST 算法）：
+  [自组织四域深读](../deep/goal-plan-todo-schedule.md)
 
 - serial 终检与 inbox 准入：[turn/step 主循环](../agent-runtime/turn-step-loop.md)
 - 提问/批准的应答线：[人机问答与反馈](./questions-and-answers.md)

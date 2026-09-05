@@ -50,21 +50,29 @@ updated: 2026-09-05
 
 ## 作用域层（scope）：per-agent 工具集
 
-`packages/core/scope`（零服务、零依赖的底层库）实现两级扁平作用域：
+`packages/core/scope`（零服务、零依赖的底层库）实现**作用域链**
+（早先"两级扁平"口径已过时——现行有 `bindScopeParent`/`scopeChainOf`/`chainLayers`，
+支持任意父链）：
 
 - 注册项要么全局，要么归属恰好一个 **scope key**（活跃 agent 对象自身即 key，身份比较）；
 - **shadowing**：作用域内同名覆盖全局（最具体者胜出）——按 agent 定制 persona/工具变体的机制；
 - **restriction**（`tools.restrict`）：为单个 scope 过滤全局工具集，多个 restriction 取交集；
   被过滤的工具**既不进提示词、也拒绝执行，与不存在不可区分**；
-- 作用域注册**不向下继承**给 subagent；子树行为靠 lineage 数据表达。
+- 作用域注册**不向下继承**给 subagent——机制是子代理**另起链根**（新 key 不挂父链），
+  而非查链被截断；注册视图沿链向下继承（最近层胜出）、事件准入沿链向上延伸，
+  restriction 只作用于继承面。
   带 `this: Scoped<T>` 的监听器参与作用域过滤派发（carrier `thisArg` + filter），
   注册表主体事件（如 `tools/change`）故意不过滤——全局变化关乎所有作用域。
+
+组合条件注册的代表作是 `read_image`：`ctx.inject(['attachments'])`——宿主没挂
+附件仓就没有这个工具，fiber 卸载即撤回（[附件与溢出](../deep/attachment-spill.md)）。
 
 ## 审批与提权通道（approval seam 速览，详见执行世界篇）
 
 `sandbox_permissions` 这类"一次性重试带提权请求"的语义 = `PreToolDecision 'ask'` +
 `ctx.userQuestions`/approval waterfall 的组合产物；应答方可以是人（GUI 卡片）、
-钩子、或自动策略——同一个挂点，不同 provider。
+钩子、或自动策略——同一个挂点，不同 provider。hooks 的 ask 决策同样汇入 approval
+seam、无应答 **fail-closed deny**（[技能·MCP·hooks 内幕](../deep/skill-mcp-hooks-internals.md)）。
 
 ## 相关
 
@@ -73,3 +81,4 @@ updated: 2026-09-05
   `complete` 独占语义 + tools provider，按作用域链合并渲染）
 - 审批应答的传输：[host/client 分层与 API 网关](../platform/host-client-boundary.md)
 - ptc/both 执行面坍缩与 run_code 桥内幕：[PTC 与 code-runtime 内幕](../deep/ptc-code-runtime.md)
+- 调度器四段、单调 guard 与作用域链分层内幕：[主干循环内幕](../deep/agent-loop-internals.md)

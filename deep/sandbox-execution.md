@@ -195,3 +195,7 @@ UAPI 结构体自包含定义）：`landlock_create_ruleset(GET_VERSION)` → AB
 - 模式的持久与重放：[持久化与崩溃恢复](./persistence-crash-recovery.md)
 - 进程内执行与围栏：[PTC 代码运行时内幕](./ptc-code-runtime.md)
 - 提权审批的消费侧挂点：[工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
+- fs 提供方的本地实现内幕（身份/锁/原子发布/观测策略）：
+  [文件系统深读](./filesystem-observation.md)（其 containment 词法快路径一节与本篇互证）
+- 执行器侧"runner 失败>拒绝"裁决与 isRunnerSpawnFailure 归因链：
+  [Shell 与终端内幕](./shell-terminal-internals.md)

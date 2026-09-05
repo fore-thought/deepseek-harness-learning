@@ -90,7 +90,8 @@ danger 透传；read-only 抛 `FS_SANDBOX_DENIED`；workspace-write **重规范�
 ## 相关
 
 - 消费侧（工具/审批挂点）：[工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
-- 进程/shell/终端：[进程、shell 与终端](./shell-process-terminal.md)
+- 进程/shell/终端：[进程、shell 与终端](./shell-process-terminal.md)；
+  四象限执行器与 PTY 就绪协议内幕：[Shell 与终端内幕](../deep/shell-terminal-internals.md)
 - code-runtime 与 LSP：[代码运行、LSP 与远程世界](./remote-and-code-runtime.md)
 - 档位词汇的 UI 半边：[人机问答与反馈](../augmentation/questions-and-answers.md)
 - 探测仲裁、令牌构造、denial/runner-failure 分类学与 landlock 启动器全细节：

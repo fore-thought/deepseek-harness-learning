@@ -14,12 +14,15 @@ updated: 2026-09-05
 - `resolveExecutable / spawn / spawnTerminal`；`SubprocessSpawnSpec` **完全显式零默认**（没有"稍微继承一下环境"的暗通道）；
 - **环境清洗**：`scrubbedParentEnv()` 按
   `/KEY|PASSWORD|SECRET|TOKEN/i` 剔除 + `DSH_ENV_PREFIX` 命名空间——
-  子进程拿不到宿主机密是**默认**不是选项；
+  子进程拿不到宿主机密是**默认**不是选项；`DSH_*` 托管变量的分层供给与
+  启动冻结快照语义见 [工程基建](../deep/engineering-base.md) 机制四；
 - 终止语义：`handle.terminate()` 是唯一动词（SIGTERM→宽限→SIGKILL，
   **进程树范围**；POSIX 负 pid 组信号 / Windows taskkill /T /F 提供方内消化）；
 - 输出：`collected.readFrom(offset)` **非消费式读取器** + 尾保留 +
   `CollectedOutput{text(尾), truncated, spillPath}`——大输出落 spill 仓给路径
   （[上下文工程](../llm-layer/context-engineering.md) 的 SpillStore 在这里兑现；你见过的"完整输出已存文件"即此）。
+- 读取语义两副面孔：seam 的 offset 读取**非消费**（可重放），
+  `ShellProcess.readOutput` **消费式**（读过即前进）——内幕见 [Shell 与终端内幕](../deep/shell-terminal-internals.md)。
 
 ## shell（`ctx.shell`）：一次性执行的词汇表
 
@@ -53,7 +56,8 @@ updated: 2026-09-05
 
 - `timeout-policy`：包裹 `tools/execute` 给声明 `timeoutMs`
   的工具装 deadline（`TOOL_TIMEOUT`）；`MAX_TIMER_DELAY_MS`
-  （setTimeout 2^31-1 坑的工程化）；
+  （setTimeout 2^31-1 坑的工程化）；替换结果**仅在自持原因码命中时**发生——
+  嵌套外层计时器读作上游取消，不冒充本次超时；
 - `repeat-tool-reminder`：重复调用**顾问式提醒不否决**——护栏分"硬闸"和"耳提示"，
   后者不改决策权。
 
@@ -64,3 +68,5 @@ updated: 2026-09-05
   [沙箱执行内幕](../deep/sandbox-execution.md)
 - 工具六段流水线挂点：[工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
 - 后台任务生命周期：[后台任务与外部触发](../augmentation/background-and-triggers.md)
+- 四象限逐调用镜像、spill 硬化与 PTY 就绪协议内幕：
+  [Shell 与终端内幕](../deep/shell-terminal-internals.md)

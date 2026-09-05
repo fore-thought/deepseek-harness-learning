@@ -32,6 +32,9 @@ updated: 2026-09-05
 - `RemoteResult{ok}` **永不因载体 reject**——错误码按领域所有者分层（封闭/开放混合），
   线级错误与业务错误永不混淆。
 
+HTTP 载体与控制器装配面（路由三件套/回退席位/17 个 gateway 码分层）：
+[HTTP 载体与控制器分层](../deep/host-gateway-webserver.md)。
+
 ## 一元链与流链
 
 ```text
@@ -62,6 +65,9 @@ updated: 2026-09-05
   client/connection 各拆 `tsconfig.host.json/tsconfig.client.json`——
   **一个 npm 包两种编译形态**，构建序 Host 生成物 → Client 消费。
 - Electron 走 file:// + IPC，不经过 webserver（同 client 树换传输）。
+
+浏览器侧连接内幕（三道门/generation 唯一源/两形态 journal）：
+[Web Client 架构](../deep/web-client-architecture.md)。
 
 ## 为什么这么分
 

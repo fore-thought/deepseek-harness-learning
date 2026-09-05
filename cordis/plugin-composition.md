@@ -47,8 +47,11 @@ updated: 2026-09-05
 
 ## dsh 启动序（`apps/cli/src/profile-boot.ts`）
 
+0. **proxy 安装**（真首步，先于一切环境加载与 context 构造）；
 1. `loadLayeredEnv`：继承环境 > 调用目录 `.env` > home `.env`（bootstrap 变量黑名单拒载）；
-2. 组合 patch 层（`structuredClone` 防 insert 引用别名污染）；
+2. 组合 patch 层（`structuredClone` 防 insert 引用别名污染；**空根 `cordis.yml`
+   每次启动重写**——防 Loader 回写把 bundle insert 烘焙进根文件）；
+   六 bundle 各装什么、差异矩阵见 [Profile 组装与启动](../deep/boot-bundles.md)；
 3. `installFailLoud`：未处理拒绝 → 恢复终端 → exit 1（宁崩不静）；
 4. `boot()`：new Context → 挂 Loader → prepare 里 provide 启动环境快照与
    命令行三服务（`CmdlineArgs/AppExit/AppReady`，`packages/boot/cmdline`）；

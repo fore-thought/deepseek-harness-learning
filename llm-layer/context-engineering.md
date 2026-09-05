@@ -17,7 +17,8 @@ updated: 2026-09-05
 - `TokenMeasurement`：以 **surface（表层）节点**为单位的 `TokenSurfaceNode` 树：
   `logRevision`、baseline（真实 usage 锚点 | 估算）、`surfaceDeltaTokens`（带符号）。
 - 双轨估算：图片按**路由定价**（visualTokens+模型可见文本），文本用固定启发式
-  （`CHARS_PER_TOKEN=4`、块/角色 overhead 4 —— 内置默认，可调）；
+  （`CHARS_PER_TOKEN=4`、块/角色 overhead 4 —— 内置默认，可调）；测量轨/投影轨两轨表面
+  与 shadow-price 协议展开见 [LLM 适配器与计量内幕](../deep/llm-adapters-metering.md)；
 - usage 锚点复用条件严格：同 envelope 且 ≥ 完整路由重定价才复用 → **缓存的是事实，
   不是猜测**。压缩/改写后按 delta 修正而非全量重算。
 
@@ -53,12 +54,15 @@ updated: 2026-09-05
   → 同策略重放字节一致）；并发合并、每等待方独立取消、实例级限流默认 2；
 - `resolveImageAttachmentAccess`：附件宿主路径 → **工具执行世界里的只读路径**
   ——附件对模型和工具同一扇窗（见执行世界篇）。
+- 三级漏斗（admission→normalization→request variant）与落盘耐久全解：
+  [附件与溢出](../deep/attachment-spill.md)。
 
 ## 溢出（`ctx.spillStore` = `SpillStore`）
 
 工具纯文本结果超 `maxInlineBytes` → 存溢出仓、结果替换为
 `SpillRef { locator, bytes, retrievalHint }`（不透明定位符+取回提示）；
 保存失败**尽力而为**：保留内联，绝不因仓库故障毁掉本轮。fork 继承定位符不复制内容。
+两武装（post-execute 三跳过 + ptc-dispatch-log）与预算代数见[附件与溢出](../deep/attachment-spill.md)。
 （你现在看到 grep 大结果"存盘并给路径"，就是这个机制。）
 
 ## 相关
@@ -67,3 +71,5 @@ updated: 2026-09-05
 - provider 复用意图：[LLM 层](./llm-vocabulary.md)；
 - 表层 replace 语义：[会话事件日志](../agent-runtime/session-event-log.md)
 - 事务全序、常量组、影子价协议与真机验证：[表层改写与压缩](../deep/surface-compaction.md)
+- 分工澄清：本篇管**容量面**（计量/压缩/仓储），"抵达模型的内容如何合成"归
+  [提示词组装与运行时上下文](../deep/prompt-assembly-context.md)

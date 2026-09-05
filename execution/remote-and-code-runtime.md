@@ -33,9 +33,11 @@ run_code 之外的一切 JS 执行都收敛到这个 seam（PTC/"程序化工具
   结果联合也闭合；扩展名→语言 provider 注册（`lsp-stdio` 起真语言服务器）；
 - 消费方=面向模型的 `tool-lsp`；**没有让模型直接操纵 LSP 会话状态**——
   把 IDE 能力压成四个稳定查询，是"能力词汇表保持小"的又一例
-  （对照 [能力供给](../augmentation/skills-mcp-hooks.md) 的 MCP 只桥 Tools）。
+  （对照 [能力供给](../augmentation/skills-mcp-hooks.md) 的 MCP 只桥 Tools）；
+  默认值全集（帧/文档/拆除预算）与取消的有界语义见
+  [LSP 与 E2B 远程世界](../deep/lsp-e2b-remote.md)。
 
-## E2B：远程执行世界的完整标本
+## E2B：远程执行世界的完整标本（组 README 自述实验性 POC，无已发布组合默认启用）
 
 `packages/e2b/`：`ctx.e2b` 共享单一远程 SDK 句柄；
 **fs-e2b + subprocess-e2b 成对替换本地世界**（[文件系统与沙箱](./filesystem-and-sandbox.md)）；
@@ -56,3 +58,5 @@ preset 行）：工具既能被模型逐个调用，也能以编程面暴露给 
 - 远程化后 UI 如何跟进：[host/client 分层与 API 网关](../platform/host-client-boundary.md)
 - run_code 桥/调度器/敌意闸与 21 项真机实测：[PTC 与 code-runtime 内幕](../deep/ptc-code-runtime.md)
 - `ctx.remote` 背后的协议与生成器：[typert 远程协议与代码生成](../deep/typert-remote-protocol.md)
+- LSP 默认值表、E2B 远程语义复刻与"同一世界不变式"接线链：
+  [LSP 与 E2B 远程世界](../deep/lsp-e2b-remote.md)

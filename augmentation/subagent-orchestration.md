@@ -24,7 +24,8 @@ updated: 2026-09-04
 - **continuable（fork/spawn）**：`startContinuable()` 预留 durable childId →
   provider 给 `ContinuableCreateSpec`——**fork = 带 seed**：父日志至最后一个
   `turn/end` 的**平衡已完成轮次前缀**，经 `CreateAgentOptions.seed` 灌入；
-  spawn 无 seed；外部提供方（ACP/Codex/Claude Code）**拒绝 agentOptions**。
+  spawn 无 seed；外部提供方（ACP/Codex/Claude Code）**拒绝 agentOptions**——唯一例外
+  是 dsh-sdk：进程外通道里**只有一路**能传 agentOptions（含 agentRouteDefaults 白名单）。
   此后**冷恢复不经 provider**：管理器折叠 descriptor 事件 → `ctx.agents.resume()`。
 - **消息路由三态**（`send_message`）：running=同 Activation `steer` 最近 step；
   waiting=唤醒后 steer；无 Activation=冷恢复再 steer。鉴权=确切在线 sender 的
@@ -49,7 +50,7 @@ parallel/pipeline 不消融为逐项 null**；`result` 永不 reject，取消后
 
 **Ralph**（`packages/workflow/tool-ralph`）不是新机制：= workflow + subagent
 原语组合出的**前台全新 agent 循环**——每轮零上下文新子会话、共享工作区当持久记忆、
-有界结构化交接（这正是"F 组摘要里 Ralph 是策略不是模式"的实现）。
+有界结构化交接（"Ralph 是策略不是模式"的实现）。
 
 ## agent team（experimental，`ctx.agentTeams`）
 
@@ -62,3 +63,8 @@ parallel/pipeline 不消融为逐项 null**；`result` 永不 reject，取消后
 - 委派对象的创建/取消语义：[turn/step 主循环](../agent-runtime/turn-step-loop.md)
 - fork 种子的日志边界：[会话事件日志](../agent-runtime/session-event-log.md)
 - ACP 双面孔（被委派目标/对外服务器）：[应用壳](../platform/web-cli-boot.md)
+- 实现层内幕（能力双闸门/Activation 驻留/四路传输/结算竞态窗口）：
+  [委派内幕](../deep/subagent-deep.md)
+- 工作流引擎与 Agent Teams 深读（上限表/配对账本/mailbox 语义）：
+  [工作流与 Agent Teams](../deep/workflow-agent-team.md)
+- 进程外嵌入通道（"不过对话边界"的后端）：[SDK 三件套深读](../deep/sdk-embedding.md)

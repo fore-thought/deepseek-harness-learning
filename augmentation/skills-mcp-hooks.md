@@ -47,7 +47,8 @@ updated: 2026-09-04
 `agent/session-start`(SessionStart)、`agent/pre-step`(UserPromptSubmit，可阻塞+注入)、
 `tools/pre-execute`(PreToolUse→`PreToolDecision`)、`tools/post-execute`(PostToolUse)、
 `agent/turn-stopping`(Stop)、`subagent/start|end`。
-command 钩子经 `ctx.shell.runHook`（环境清洗/进程组取消/超时）；
+command 钩子由 hook-protocol 库函数**经 `ctx.shell` 执行器**执行（环境清洗/进程组
+取消/超时）——不是"存在叫 runHook 的 shell 方法"这层意思（深读纠偏）；
 **exit 2 = 阻塞**（stderr 成模型可见原因）、其它失败不阻塞；决策合并
 `deny > ask > allow`。`hook/invoked|hook/result` 配对事件在轮次内落日志
 （invariant 伴生强制）。
@@ -69,6 +70,9 @@ command 钩子经 `ctx.shell.runHook`（环境清洗/进程组取消/超时）�
 - `packages/identity`：每 harness home 一个匿名 id（遥测/反馈/提供方请求共用）。
 
 ## 相关
+
+- 三桥内幕（revision 缓存/MCP 命名折叠/双方言单引擎/stdio 不沙箱边界）：
+  [技能·MCP·hooks 内幕](../deep/skill-mcp-hooks-internals.md)
 
 - hooks/approval 共用的决策点：[工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
 - 挂载语法（!!js / isolate 行）：[插件组装与启动](../cordis/plugin-composition.md)
