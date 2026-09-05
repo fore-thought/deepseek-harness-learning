@@ -191,30 +191,9 @@ strict（local 表 **或 hasSeen**，撤回过的也占名防降级）+ `$events
 - 待核实：generator `mode:'workspace'` emit 与 package 模式并发语义未实测；`@typert service`
   标签全仓用量未清点。
 
-## Java 移植观察
-
-1. **@Remote 是零运行时语义纯标记**：Java 注解天然同构——RUNTIME 保留供 SRC 式回退，
-   APT/javaparser 供严格产物；"强语义放构建期与分发期"的分工可直接照搬。
-2. **SRC 回退有现成更强等价**：`javac -parameters` + `Parameter#getName()` 替代 `Function.toString`
-   截参数名；但弱回退边界值得照抄——弱模式**保留 lookup 声明分类**，client **永远拒收弱 codec**。
-3. **hasSeen 历史**（只增 Set）= 便宜易漏的防降级机制：撤回的 strict endpoint 占名、禁静默降回弱校验；JVM 平迁零成本。
-4. **结构判别优先于 instanceof/异常类型捕获**——跨 realm 教训对应 JVM 跨 classloader 场景，同样成立。
-5. **双轨投影动机可弃，导出纪律可留**：Java 走 APT 已解析模型可单轨；但"wire 类型必须是 public、
-   非根导出的 API 面类型"这条纪律可平迁。
-6. **lookup 参数命名即协议**（name==key、wire==`key+"Id"`）：改参数名=breaking change。Java 用
-   `-parameters` 照抄，或注解显式化（更稳）。
-7. **取消树是横切最大成本**：`AbortSignal.any` 组合取消贯穿全部流/事件/页/仲裁；JVM 无现成等价，
-   需取消树/结构化并发/虚拟线程方案。
-8. **背压现状 = 无协议**（单写链 + 无界 inbox）；JVM 传输层（如 Netty writability 反馈）能做得
-   更强，属可选差异点。
-9. **生成器兼 codemod**（write 模式自动注回类型再重跑）：约定沉进构建闸而非 review；Java 对应 Error Prone / AutoFix。
-10. **产物命名纪律代码级强制**（两 face 共包、exports 逐字段比对、陈旧产物主动删）：Java 多模块
-    用构建脚本锁 artifact 命名，防"产物在但约定漂移"。
-
 ## 相关
 
 - host/client 分层与网关全貌（本篇所属概览页）：[host/client 分层与 API 网关](../platform/host-client-boundary.md)
 - 三流的消费方与会话历史投影：[持久化格式与崩溃恢复](./persistence-crash-recovery.md)
 - PTC 代码运行时（另一条跨边界通道）：[PTC 与 code-runtime](./ptc-code-runtime.md)
 - 事件语义基座：[Cordis 内核](../cordis/cordis-kernel.md)
-- Java 移植总图：[Java 移植地图](../java-porting-map.md)

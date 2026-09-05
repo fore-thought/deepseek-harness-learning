@@ -38,7 +38,7 @@ updated: 2026-09-05
 ```ts
 declare module '@deepseek-ai/cordis' { interface Events { 'x/y'(…): void } }
 ```
-不改框架源码就给事件总线加新事件——这是 DSH 扩展体系的基座（Java 无等价物，见 [Java 移植观察地图](../java-porting-map.md)）。
+不改框架源码就给事件总线加新事件——这是 DSH 扩展体系的基座。
 
 ## 上下文作用域三原语（`context.ts`）
 
@@ -103,4 +103,3 @@ stateDiagram-v2
 - 上层组装（loader/patch/profile）：[插件组装与启动](./plugin-composition.md)
 - 主干如何消费这些服务：[turn/step 主循环](../agent-runtime/turn-step-loop.md)
   · [工具注册表与执行流水线](../agent-runtime/tools-pipeline.md)
-- Java 移植观察：[Java 移植观察地图](../java-porting-map.md)

@@ -174,29 +174,6 @@ UAPI 结构体自包含定义）：`landlock_create_ruleset(GET_VERSION)` → AB
 - 子进程 TMP 指向 `dsh-` 前缀私有目录；write 工具越界=两行标记模板逐字命中（fs 家族 subject=
   'operation'、bash 家族='command'）。
 
-## Java 移植观察
-
-1. SID 派生是**纯算法**（SHA-256+u32 取模），任何语言逐行可移植；"SID 不是秘密、能力=ACE 指名
-   SID"的模型与语言无关（`workspace-sid.ts:11-14` 明文）。
-2. windows-acl 全部依赖面=22 个 advapi32/kernel32 平 API（`ffi.ts` 绑定表即完整清单），JVM 侧
-   Panama（JNA 亦可）能 1:1 复刻；三条实测坑要带进设计账本：`GetCurrentProcess` 伪句柄不可
-   FFI 直取（要真 `OpenProcess`）；NULL OVERLAPPED 在 koffi 崩（JVM FFI 边界行为未知需自测）；
-   显式环境块+受限令牌实测 `ERROR_INVALID_PARAMETER`（规避=改写自身环境再继承）。
-3. `hasExactGrant` 的 O(1) 复用是**行为契约级**优化：移植丢失则每次 provision 变全树
-   eager-propagation（大目录"分钟"级 [ESTIMATED]）。Java 可用 `AclFileAttributeView` 表达，
-   但 SID 相等比较建议按字节（`sameSidAt` 语义）。
-4. denial/runner-failure 的**字符串分类学**（stderr 子串+exit 闸+信息行剔除）本质是跨进程边界的
-   脆弱契约，DSH 靠"每后端方言常量表+行号级注释+fixture 同步"管理（`RUNNER_FAILURE_RULES` 注释
-   点名 partial-landlock 的 snapshot fixture）。Java 版同走子进程 argv 包装将继承同一脆弱面
-   ——事实陈述，非建议。
-5. `landlock-run` 是**独立于 Node 的原生资产**（musl 静态 C11 二进制+argv 契约+版本化 CLI
-   contract 文档钉死）："换语言不换启动器"的活例，任何宿主语言复用同一二进制。
-6. 三模式词汇在类型系统把"可 confine 子集"单独成型（`ConfinedSandboxMode = Exclude<…>`，
-   danger 不入词汇表），policy 永远显式带 workspaceRoot——Java 密封接口可同样表达。
-7. 环境的**双向清洗事实**：子进程 TMP/TEMP 由 runner 改写为私有目录；而 code-runtime worker
-   线程内 `os.tmpdir()` 在无 TMP/TEMP/TMPDIR 时返回回退串——宿主环境与注入子进程环境是两套
-   事实，移植时"谁给谁注入什么"要画清水位线。
-
 ## 诚实边界
 
 - 待核实：`win32-process/src/ffi.ts` 绑定原语层（allocStartupInfo/decodeProcessInfo 等）只经

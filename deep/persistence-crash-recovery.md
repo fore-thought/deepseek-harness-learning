@@ -176,27 +176,6 @@ surface 投影统计精确相等（276）；`sourceEventSeqs` 248 条、其中�
 finish 不打包）；`step` 123×3、`tool` 123×2、`agent/inbox/spliced` 42、
 `tool/code-dispatch(-start)` 173×2；`dt` 时延零占 61.8%、无负值。
 
-## Java 移植观察
-
-1. 持久层可在 JVM 上等价复刻且更顺：link-vs-rename、`MoveFileExW`、目录 fsync、
-   `wx` 独占创建都有直接对应（`Files.createLink`、`FileChannel.force`、
-   `CREATE_NEW`；`ATOMIC_MOVE` 恰是 DSH 刻意避开的语义）。zstd 帧语义与语言无关，
-   但 **Node 默认 128KB 块边界正是实测恢复粒度的来源**——换 zstd 库（JNI/airlift）
-   必须重测块大小与恢复平台期，同参数不可假设。
-2. 200ms 批窗 + 失败回序缓冲 + `drainPaused` 静音是纯策略代码，无框架依赖；
-   promise 链突变串行在 Java 对应单线程执行器 / 有锁队列，语义等价。
-3. 撕裂恢复的契约本质 = "批为原子单位"不变量。移植可整删 zstd 而保留行协议测试，
-   但 Scanner 的 issue 闩锁与 `committedBytes` 语义必须随读路径保留。
-4. revision 用文件系统元组而非内容哈希：JVM `BasicFileAttributes` 同样能拿
-   fileKey/size/mtime/ctime（ctime 语义跨平台不一致，但只用作缓存键，无害）。
-5. `withFileLock`（`.lock` 兄弟文件 + `wx` 独占 + 指数退避 20→200ms、默认
-   waitMs=2000）刻意留给 settings/credentials；会话侧跨进程写租约 = 已声明未实现
-   ——Java 版若先做多进程会话共享，需要**发明**这一层而非照抄。
-6. koffi FFI 对应 JEP 454 FFM API；但 `MoveFileExW` 的 WRITE_THROUGH 语义在
-   `java.nio.file.Files` 无直接开关，需 FileChannel 层配 FlushFileBuffers，或接受弱化并记录差异。
-7. 崩溃修复的归属原则原样继承：持久层只给物理有效前缀；语义配平（合成 closer）归
-   agent 层、且**只在写所有权下回写**，冷读者只内存配平——两调用点共用同一纯函数，天然可移植。
-
 ## 诚实边界
 
 - 待核实：`SessionPreparation` 与 `appendUnstoredSuffix`（恢复后再排干未持久种子尾）
@@ -217,4 +196,3 @@ finish 不打包）；`step` 123×3、`tool` 123×2、`agent/inbox/spliced` 42�
 - 写所有权在循环里的位置：[turn/step 主循环](../agent-runtime/turn-step-loop.md)
 - 文件系统执行世界的姊妹深读：[沙箱执行](./sandbox-execution.md)
 - 子会话头部继承与 fork 种子大批：[委派与编排](../augmentation/subagent-orchestration.md)
-- 本篇 Java 观察的总映射：[Java 移植总图](../java-porting-map.md)

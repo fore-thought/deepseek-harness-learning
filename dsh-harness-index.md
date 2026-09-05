@@ -8,7 +8,8 @@ updated: 2026-09-05
 
 # DSH 源码架构 · 主题导航
 
-> 目的：为"Java 版大模型 harness"打前站，把 DSH（TypeScript 实现）的架构吃透。
+> 目的：把 DSH（TypeScript 实现的开源 LLM agent harness）的架构吃透——
+> 纯对象知识；如何用它再造什么，属其他主题。
 > 从 [DSH 源码架构总览](./overview.md) 读全景；按层进入分篇。
 
 ## 阅读顺序建议
@@ -30,7 +31,6 @@ updated: 2026-09-05
    [人机问答与反馈](./augmentation/questions-and-answers.md) →
    [后台任务与外部触发](./augmentation/background-and-triggers.md) →
    [配置面](./augmentation/settings-and-credentials.md)
-8. 横切收束：[Java 移植观察地图](./java-porting-map.md)
 
 ## 专题深读（deep/）
 

@@ -55,7 +55,7 @@ updated: 2026-09-05
   original；可调用服务（`[Service.invoke]`）由 `createCallable`（226）每次调用现场 trace 再 dispatch。
 
 真机归属实测：consumer 调 provider 服务的方法注册 effect → `ownerFiber=consumer`；重启 consumer 时该 effect 回卷重放，
-provider 不动。这就是“注册即可逆 + 归属正确”的粘合层；Java 侧没有隐式 this 重绑的等价物（见 Java 移植观察）。
+provider 不动。这就是“注册即可逆 + 归属正确”的粘合层。
 
 ## Loader 的三个全局钩子（`vendor/loader/src/index.ts`）
 - **await 闸**：provide `loader` 带 `[Service.check]`——intercept `{await:true}` 的消费方在 `getTasks()` 非空时
@@ -188,23 +188,6 @@ profile.ts:854）**共用同一函数**——杜绝“dump 说的和跑的不一
 | `Realm`/`LocalRealm('#id')`/`GlobalRealm('@label')` + `EntryOptions{+intercept,+isolate}` | isolate.ts:36-72,8-12 | isolate 符号命名空间（realm GC 在 partial-dispose）；概览篇记的字段集其实来自模块扩充（core 版只有 6 字段） |
 | `ModuleLoaderV1/V2` 形态探测 + `JsExpr{__jsExpr}` | internal.ts:60-120；utils.ts:26 | v2=Node ≥24.12 才有、两版 resolve 参数序相反；`!!js` 的 JSON 中性载体（可 structuredClone/JSON 往返） |
 
-## Java 移植观察
-**epoch 重启无需运行时黑魔法**：uid 指纹 + notify 全表扫描 + 逆序回卷重放是纯数据结构逻辑（真机复现在未开 `--expose-internals` 的普通 node 进程里
-  完整跑通），JVM 完全可复刻。
-**真正的分叉是模块级 HMR——JS 私有技巧**：loadCache/require.cache 双失效 + `ModuleJob.linked` 图遍历 + 原生 addon 取内部
-  loader；Java 对应物（热替换 ClassLoader/Instrumentation/OSGi）语义不同且更重。DSH 自己也只留 watch-only 默认档（live 用
-  `root: []` 跑 config-only HMR，源码热替换是 base bundle 显式开启的 dev 特性）——**config 热重启 = 产品必需件、模块热替换 =
-  开发者便利件**，Java 版可先只做前者。
-**shadow 重绑需要显式化**：JS 靠 Proxy + thisArg 替换实现“服务方法里的注册落在调用方 fiber”；Java 无 this 重绑，等价设计 = 方法签名显式携带
-  caller-scoped 上下文（如 `register(CordisContext ctx, ...)`）或每次调用注入 `ResourceScope`；tracker/noShadow 二元
-  （身份敏感服务保留 origin）也要在类型面上表达。
-**`!!js` = with + eval，是安全面**：config 表达式可触碰 ctx 上的一切（`process.env` 等）。Java 等价物（SpEL/Groovy）同样有注入面，
-  Spring 生态对 SpEL 沙箱有成熟讨论；移植时应把“表达式在谁的 ctx、什么时机求值”的时机表记成**行为契约**，不只是实现细节。
-**异步 disposer 的并发语义是文档债**（JSDoc 写“逆序执行”、实现是“逆序启动并发完成”，实测澄清）。Java 移植若改为严格顺序 await，行为兼容但启动/卸载时延变长——两种选
-  择都要写进契约测试。
-**环境引导防护可直接继承**：`BOOTSTRAP_NAMES` 禁改名单已含 `JAVA_TOOL_OPTIONS`/`_JAVA_OPTIONS`/`JDK_JAVA_OPTIONS`（
-  app-boot/index.ts:96-127）——上游已把 JVM 启动钩子列入“.env 禁改名单”，Java 版 harness 沿用这套白名单纪律即可。
-
 ## 诚实边界
 - 待核实：`fiber.await()` 在“load 进行中又被 dispose”的多轮 inertia 链收敛性，只有代码走读，未做对抗性时序实验。
 - 待核实：`analyzeChanges` 的 accepted 沿依赖方向传播、pending 段存在价值（推测=给共享库文件预分类；正确性由 partialReload 二阶段检查兜底）。
@@ -217,4 +200,3 @@ profile.ts:854）**共用同一函数**——杜绝“dump 说的和跑的不一
 - 配置树与启动序的概览：[插件组装与启动](../cordis/plugin-composition.md)
 - 启动链的应用壳半边：[应用壳](../platform/web-cli-boot.md)
 - 热重启“产品状态零扰动”的持久化侧印证：[持久化与崩溃恢复](./persistence-crash-recovery.md)
-- 移植决策总览：[Java 移植观察地图](../java-porting-map.md)

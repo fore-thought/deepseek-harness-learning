@@ -65,7 +65,7 @@ command 钩子经 `ctx.shell.runHook`（环境清洗/进程组取消/超时）�
 
 - `packages/extensions`：运行中的 agent 可动态定义/运行/移除 Cordis 包的
   双半沙箱 runner（`ctx.dynamicCordisRunner`）+ 模型侧工具 `tool-cordis`——
-  "harness 能被 harness 现场改装"（详见其文档；Java 移植重点观察区）。
+  "harness 能被 harness 现场改装"（详见其文档）。
 - `packages/identity`：每 harness home 一个匿名 id（遥测/反馈/提供方请求共用）。
 
 ## 相关

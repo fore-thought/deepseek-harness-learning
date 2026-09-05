@@ -9,7 +9,6 @@
 - 第一次来：打开 `overview.md`（全景 + 设计决定 + 分层导航）。
 - 用 Obsidian 打开本文件夹作为 vault 体验最佳（相对路径双链、mermaid、反链图谱；
   GitHub 网页端链接同样可点）。
-- 只关心"用 Java 造 harness 该注意什么"：直接看 `java-porting-map.md`（横切观察，非设计方案）。
 
 ## 内容结构
 
@@ -22,7 +21,6 @@ platform/        平台（持久化 / host-client 网关 / 应用壳）
 execution/       执行世界（fs 沙箱 / 进程终端 / code-runtime·LSP·E2B）
 augmentation/    增强层（委派编排 / 技能挂载 / 自组织 / 问答 / 后台 / 配置）
 deep/            专题深读（源码级走读与真机实测）
-java-porting-map.md
 ```
 
 ## 许可与署名（Notice）

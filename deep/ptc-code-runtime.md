@@ -182,27 +182,6 @@ runtime（绕 Loader，config 手填全量）；端到端另装 SystemPrompt + T
 | 15 | 伪造入站 log | `{type:'log', text:'FORGED-LINE', extraPoison:1}` 被收下、多余字段剥掉、进正常 logs |
 | 16 | 伪造 done；顶层撞名 | 伪造 done 抢先结算 'HACKED'、真 done 被 settled 闸丢弃；程序顶层 `const tools` → SyntaxError（形参注入活证） |
 
-## Java 移植观察
-
-- "host 视入站为敌意"的真实语义 = 形状重建 + 幂等（answered 集）+ own-property 查找，**不验证内容
-  真实性**。Java 版照抄"进程内 Worker+MessagePort"模型时必须写明**防事故不防作恶**；真正的安全
-  边界在审批/sandbox seam（模型代码 = bash-equivalent trust）。
-- wire 协议显式"无版本、host 与 worker co-shipped"（protocol.ts:2 注释）。Java 版若把 runtime 拆
-  独立 jar/module 需重新决策版本握手；单 module 内可照抄无版本。
-- 位置保持剥离是"诊断坐标不漂移"的根基，"先入壳、再变换、再切回"可借鉴——Java 对应问题：模型写的
-  Java/Groovy 源码如何编译/嵌入且报错行号回映射；形参注入 = 占用形参位（实测 #16），包装方法
-  + 形参注入会撞同样问题，注入名与常用名（tools、console）的冲突面要在契约里显式化。
-- 字节预算"编码前逐字符计数、不物化整串" + 双账本 + "先流式后终态"的 drain 序（输出在终止后仍可
-  部分回收）值得原样移植；"每 run 新建 worker + dispose await 到静默"的收尾纪律，Java 虚拟线程或
-  每 run 子进程同理。
-- busy-time 基于 `performance.eventLoopUtilization()`（Node 特有）。Java 等价 =
-  `ThreadMXBean.getThreadCpuTime(workerThread)` 轮询或 JFR busy 事件；双型 timeout 语义语言无关，只换 API。
-- JVM 无 JS 原型这类可变全局面，intrinsic 捕获家族可整族省掉；但**迭代遍历防栈溢出**必须保留
-  （实测 #3 的 20 万层依赖它）。
-- PTC 与 native 调度器的镜像契约靠注释逐条互指；移植时要么镜像、要么抽共享 scheduler——
-  `TOOL_RUNTIME_SCHEDULER` 分阶段面（prepare/dispatch/finalize/finish 四动词）已给出共享抽象的
-  接口形状；"注册表私有能力经构造闭包注入" = Java 包私有构造参数/工厂方法，直接平移。
-
 ## 诚实边界
 
 - 待核实：py-types.ts 只读了头部结构注释，Python 端 TypedDict 生成细则未逐行。

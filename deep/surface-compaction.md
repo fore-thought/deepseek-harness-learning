@@ -195,21 +195,6 @@ validateSurfaceRegion（位置 + 双边界切点平衡）
 待核实：多进程同开一会话是否另有防线——括号锁并发结论基于代码注释自述（"tolerating concurrent writers
 needs a signal beyond the log"），未见测试复现。
 
-## Java 移植观察
-
-- 表层折叠是纯数据算法（数组+`indexOf`+`splice`+深比较），plan/apply 即天然"校验→提交"分离；要显式化
-  brand number（`SessionSeq`/`SessionLogOffset` 类型品牌→record 包装+构造校验）与深冻结（零拷贝投影缓存
-  靠"共享冻结引用"，需有意设计共享不可变节点）。
-- 两处 `Object.is` 引用比较（apply 同引用=零工作；双缓冲去抖）依赖"折叠返回同一实例"的纪律——**照抄结构、
-  换掉机制**：显式 `changed:boolean`/Optional；`WeakMap` 缓存换 `WeakHashMap` 需锁，更合身是会话句柄
-  显式携带状态槽。
-- `Session.append` 的 reenter 抛错暴露单写者假设：多线程移植须上锁并保持"surface 折叠、observer 广播、
-  persistence 缓冲对同一 seq 全序"的同步发布序——移植期最大的并发纪律新增。`replaceGeneration` 失效令牌
-  贯穿四处消费者（投影缓存、平衡缓存、请求 series、稳定性检查），无锁一致性判断的中枢——显式 `long`+原子读。
-- zstd 每写一帧：zstd-jni 天然支持级联帧，保持同一帧边界策略（崩溃尾部只丢帧不毁全局）；影子价协议是给纯
-  消费方的免状态设计、多语言客户端值得原样保留；摘要前缀复用是为 provider KV cache 命中率的**计费工程**、
-  照搬即吃到同款折扣；锁=日志不配对括号跨进程互斥弱——保留该设计须补显式 lease/owner，否则双压。
-
 ## 相关
 
 - 概览篇的压缩与计量分工：[上下文工程：计量、压缩、附件与溢出](../llm-layer/context-engineering.md)

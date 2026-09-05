@@ -31,7 +31,6 @@ Loader 按依赖就绪顺序实例化插件 → 插件向共享 `Context` 提供
 | 执行世界 | fs/沙箱/进程/shell/终端/LSP/code-runtime | [文件系统与沙箱](./execution/filesystem-and-sandbox.md) · [进程、shell 与终端](./execution/shell-process-terminal.md) · [代码运行、LSP 与远程世界](./execution/remote-and-code-runtime.md) |
 | 平台层 | 持久化、storage、host/client、API 网关、应用壳 | [会话持久化与存储](./platform/session-persistence.md) · [host/client 分层与 API 网关](./platform/host-client-boundary.md) |
 | 增强层 | subagent/skill/goal/workflow/jobs/MCP/hooks | [委派与编排](./augmentation/subagent-orchestration.md) · [能力供给](./augmentation/skills-mcp-hooks.md) · [自组织](./augmentation/goal-plan-todo.md) · [人机问答与反馈](./augmentation/questions-and-answers.md) · [后台任务与外部触发](./augmentation/background-and-triggers.md) · [配置面](./augmentation/settings-and-credentials.md) |
-| 横切 | Java 移植视角的观察汇总 | [Java 移植观察地图](./java-porting-map.md) |
 | 专题深读 | 六路源码级走读与真机实测（`deep/`，修正概览篇开放问题） | [深读索引](./dsh-harness-index.md) |
 
 ## 全景图
@@ -56,7 +55,7 @@ flowchart TB
   J --> UI["Web Client（浏览器内独立 Cordis 应用）"]
 ```
 
-## 关键设计决定（值得 Java 版借鉴的"为什么"）
+## 关键设计决定（为什么这样设计）
 
 1. **没有特权内核**：模型适配器、工具注册表、会话日志、循环本身都是插件，
    全部可被一行 patch 替换（`docs/architecture.zh.md`）。

@@ -71,8 +71,8 @@ updated: 2026-09-05
 `vendor/hmr`：文件监视 → 借 Node ESM 内部 loadCache/ModuleJob 失效模块 → 重挂该条目。
 任何插件的注册都是 effect（[Cordis 内核](./cordis-kernel.md)），所以"卸载→重载" = 逆序回卷 + 重放，
 产品状态（会话日志）不受影响。三级决策表与双缓存失效细节见 [Cordis 热重启与热重载内幕](../deep/cordis-hot-reload.md)。
-**这是 JS 运行时私有技巧**，Java 对应物（classloader
-热替换）代价高得多——移植时的真实架构分叉点。
+**这是 JS 运行时私有技巧**：依赖 Node ESM 内部
+loadCache/ModuleJob 结构才能成立。
 
 ## 相关
 
