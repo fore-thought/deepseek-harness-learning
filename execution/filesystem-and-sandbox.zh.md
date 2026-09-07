@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 文件系统与沙箱：一个执行世界
 
+[English](filesystem-and-sandbox.md) | [中文](filesystem-and-sandbox.zh.md)
+
 > 执行环境全组是**循环之外的可选能力 seam**。核心思想一句话：
 > **fs 与 subprocess 提供方共享同一个"执行世界"**——把它们整体指向远程沙箱，
 > Bash/PTY/LSP 一起搬家，无需任何提供方专用 fork（architecture.zh.md）。

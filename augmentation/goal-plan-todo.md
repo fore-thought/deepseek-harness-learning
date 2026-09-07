@@ -9,7 +9,7 @@ evidence: "packages/{goal,plan,todo,schedule}/* + docs/subsystems 同名页；�
 
 # Self-Organization
 
-English | [中文](goal-plan-todo.zh.md)
+[English](goal-plan-todo.md) | [中文](goal-plan-todo.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](goal-plan-todo.zh.md); once translated the

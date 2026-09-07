@@ -9,6 +9,8 @@ updated: 2026-09-04
 
 # 配置面：settings、credentials、workspace
 
+[English](settings-and-credentials.md) | [中文](settings-and-credentials.zh.md)
+
 ## `ctx.settings`：命名空间化、可 watch 的配置树
 
 - 插件注册 `SettingsNamespace`（schemastery schema，含 `role('secret')`

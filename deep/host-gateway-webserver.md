@@ -9,7 +9,7 @@ evidence: "packages/host/*/src + packages/api/{gateway,remotes,session-controlle
 
 # HTTP Carriers & Controller Layering
 
-English | [中文](host-gateway-webserver.zh.md)
+[English](host-gateway-webserver.md) | [中文](host-gateway-webserver.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](host-gateway-webserver.zh.md); once translated the

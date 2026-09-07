@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 进程、shell 与终端：从一次性 spawn 到持久 PTY
 
+[English](shell-process-terminal.md) | [中文](shell-process-terminal.zh.md)
+
 ## subprocess（`ctx.subprocess`）：最底层的显式
 
 - `resolveExecutable / spawn / spawnTerminal`；`SubprocessSpawnSpec` **完全显式零默认**（没有"稍微继承一下环境"的暗通道）；

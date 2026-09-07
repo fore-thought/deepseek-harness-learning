@@ -9,7 +9,7 @@ evidence: "packages/{settings,credentials,workspace}/*；docs 同名页；子代
 
 # Settings Plane
 
-English | [中文](settings-and-credentials.zh.md)
+[English](settings-and-credentials.md) | [中文](settings-and-credentials.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](settings-and-credentials.zh.md); once translated the

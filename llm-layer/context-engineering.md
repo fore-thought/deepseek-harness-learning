@@ -9,7 +9,7 @@ evidence: "packages/{token-meter,compaction,attachment,spill} + docs 同名子�
 
 # Context Engineering
 
-English | [中文](context-engineering.zh.md)
+[English](context-engineering.md) | [中文](context-engineering.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](context-engineering.zh.md); once translated the

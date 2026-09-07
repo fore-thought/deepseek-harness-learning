@@ -9,7 +9,7 @@ evidence: "packages/sandbox/* + native/landlock-run + packages/{fs,shell}/* 直�
 
 # Sandbox Execution
 
-English | [中文](sandbox-execution.zh.md)
+[English](sandbox-execution.md) | [中文](sandbox-execution.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](sandbox-execution.zh.md); once translated the

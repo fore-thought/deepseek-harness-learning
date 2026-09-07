@@ -10,6 +10,8 @@ updated: 2026-09-05
 
 # 派生侧深读：投影、标题、遥测与格式代次
 
+[English](session-projection-telemetry.md) | [中文](session-projection-telemetry.zh.md)
+
 > [持久化格式与崩溃恢复](./persistence-crash-recovery.zh.md)讲的是日志的**写侧**（帧、写门、
 > 撕裂尾）；本篇讲**派生侧**：从"唯一真源日志"往外的每一条产出通道——投影 seam 与它的
 > 持久缓存、标题/统计/大纲三个读侧单元、遥测脱敏 waterfall、增量上报，以及把这一切

@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 表层改写与压缩：replace 语义、影子价与括号锁
 
+[English](surface-compaction.md) | [中文](surface-compaction.zh.md)
+
 > 本篇回答：模型可见的"表层"如何被 `replace` 合法改写；压缩如何以日志括号对为锁按事务全序落地；改写后的
 > token 价如何让纯消费方免状态扣减；存储层用什么行压缩扛住 96% 的 chunk 洪水。衔接概览篇[上下文工程：计量、
 > 压缩、附件与溢出](../llm-layer/context-engineering.zh.md) 的留白；证据基准 = DSH 仓库源码直读 + 本机真机实测。

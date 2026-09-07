@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 会话查询内幕：逻辑语料、FTS5 派生索引与授权工具面
 
+[English](session-query.md) | [中文](session-query.zh.md)
+
 > 会话事件日志是唯一真源（[会话事件日志](../agent-runtime/session-event-log.zh.md)）；本篇讲**怎么把它读回来**：
 > `packages/session-query/` 四包 = 查询接缝（session-query）、SQLite FTS5 提供方（session-query-sqlite）、
 > 模型工具面（tool-session-query）、ZIP 导出（session-log-export）。投影/标题/遥测的供给侧内部机制

@@ -12,6 +12,8 @@ updated: 2026-09-05
 
 # 交互、审批与权限档位：命令注册表与带审计的三问
 
+[English](interaction-approval-feedback.md) | [中文](interaction-approval-feedback.zh.md)
+
 > 概览篇 [人机问答与反馈](../augmentation/questions-and-answers.zh.md) 的深读承接：
 > `packages/interaction/` 5 包 + `packages/feedback/` 2 包 + `packages/identity/` 1 包
 > （合计 2711 行 [MEASURED]）。三个 seam（提问/审批/预设）共享同一套安全语法：

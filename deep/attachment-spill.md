@@ -9,7 +9,7 @@ evidence: "packages/{attachment,spill}/* src 直读 + fs/tool-fs(read_image) + l
 
 # Attachments & Spill
 
-English | [中文](attachment-spill.zh.md)
+[English](attachment-spill.md) | [中文](attachment-spill.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](attachment-spill.zh.md); once translated the

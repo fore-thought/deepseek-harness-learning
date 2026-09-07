@@ -9,6 +9,8 @@ updated: 2026-09-04
 
 # 自组织：goal、plan mode、todo、schedule
 
+[English](goal-plan-todo.md) | [中文](goal-plan-todo.zh.md)
+
 > 四种"跨轮次维持的工作状态"，共同的实现姿势：**持久领域事件 + 投影 + CAS revision**，
 > 调度语义与状态本体严格分离。
 

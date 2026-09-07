@@ -10,6 +10,8 @@ updated: 2026-09-05
 
 # 提示词组装与运行时上下文：抵达模型的一切如何逐次合成
 
+[English](prompt-assembly-context.md) | [中文](prompt-assembly-context.zh.md)
+
 > 全库头号主线缺口的承接篇：[总览](../overview.zh.md)导航表把"提示词组装"写在 Agent 主干行里，
 > 而主干三篇没有一篇兑现它。本篇回答四个问题：system prompt 如何被注册表**每个 step 逐次组装**
 > （四类输入 + 一条协作瀑布）；AGENTS.md 指令、运行时上下文、时间注入为什么**不在 system

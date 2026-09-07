@@ -8,6 +8,8 @@ updated: 2026-09-05
 ---
 
 # Cordis 热重启与热重载内幕
+
+[English](cordis-hot-reload.md) | [中文](cordis-hot-reload.zh.md)
 > 概览篇说过“依赖变化 → 自动重启”“patch 一编辑 → 热重启该子系统”（见 [Cordis 内核](../cordis/cordis-kernel.zh.md)
 > 与 [插件组装与启动](../cordis/plugin-composition.zh.md)）。本篇内幕：epoch 回卷重放、disposer 真实并发语义、shadow 重绑、
 > Group 回滚形态、HMR 三级决策与双缓存失效、`!!js` 求值时机、boot → watchUserPatches → 重启链；证据基准：源码直读 + 真机实测。

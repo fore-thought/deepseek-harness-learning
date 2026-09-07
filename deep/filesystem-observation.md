@@ -9,7 +9,7 @@ evidence: "packages/fs/ 全组 7 包 29 个 src 文件直读 [MEASURED] + docs/s
 
 # Filesystem Observation
 
-English | [中文](filesystem-observation.zh.md)
+[English](filesystem-observation.md) | [中文](filesystem-observation.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](filesystem-observation.zh.md); once translated the

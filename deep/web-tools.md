@@ -9,7 +9,7 @@ evidence: "packages/web/* src 直读 + docs/subsystems/web.zh.md + 本会话（f
 
 # Web Tools
 
-English | [中文](web-tools.zh.md)
+[English](web-tools.md) | [中文](web-tools.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](web-tools.zh.md); once translated the

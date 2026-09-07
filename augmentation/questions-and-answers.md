@@ -9,7 +9,7 @@ evidence: "packages/interaction/*、feedback/*；docs: user-questions / feedback
 
 # Q&A & Feedback
 
-English | [中文](questions-and-answers.zh.md)
+[English](questions-and-answers.md) | [中文](questions-and-answers.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](questions-and-answers.zh.md); once translated the

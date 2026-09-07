@@ -9,7 +9,7 @@ evidence: "读 DSH 仓库 typert/*、api/gateway/src/*、core/{agent,session}/* 
 
 # typert Remote Protocol & Codegen
 
-English | [中文](typert-remote-protocol.zh.md)
+[English](typert-remote-protocol.md) | [中文](typert-remote-protocol.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](typert-remote-protocol.zh.md); once translated the

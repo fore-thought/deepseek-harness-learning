@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # Profile 组装与启动：六个 bundle 的构成与取舍
 
+[English](boot-bundles.md) | [中文](boot-bundles.zh.md)
+
 > 边界先说破：Cordis 装载机制（Loader/Include/patch 算法/HMR 模块失效）归
 > [插件组装与启动](../cordis/plugin-composition.zh.md) 与 [热重启内幕](./cordis-hot-reload.zh.md)，
 > 浏览器端第二次 boot 归 [应用壳](../platform/web-cli-boot.zh.md)。本篇回答的是**装载之下**

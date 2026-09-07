@@ -9,7 +9,7 @@ evidence: "packages/{skill,mcp,hooks,preset,extensions}/*；docs: skills / comma
 
 # Capability Supply
 
-English | [中文](skills-mcp-hooks.zh.md)
+[English](skills-mcp-hooks.md) | [中文](skills-mcp-hooks.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](skills-mcp-hooks.zh.md); once translated the

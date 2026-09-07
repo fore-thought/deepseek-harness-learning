@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 代码运行、LSP 与远程世界
 
+[English](remote-and-code-runtime.md) | [中文](remote-and-code-runtime.zh.md)
+
 ## code-runtime（`ctx.codeRuntime`）：模型写代码、harness 跑代码
 
 run_code 之外的一切 JS 执行都收敛到这个 seam（PTC/"程序化工具调用"的宿主）：

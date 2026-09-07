@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/core/{system-prompt,agent-loop} + packages/contex
 
 # Prompt Assembly & Runtime Context
 
-English | [中文](prompt-assembly-context.zh.md)
+[English](prompt-assembly-context.md) | [中文](prompt-assembly-context.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](prompt-assembly-context.zh.md); once translated the

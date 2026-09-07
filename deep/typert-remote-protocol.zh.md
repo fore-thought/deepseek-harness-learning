@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # typert：从类型声明到类型化远程
 
+[English](typert-remote-protocol.md) | [中文](typert-remote-protocol.zh.md)
+
 > 本篇回答：TS 类型如何变成跨进程 RPC——发现机制、构建期生成、分发顺序、帧协议、事件回推
 > 各有什么硬约束，以及哪些广为流传的说法其实不成立。衔接概览页
 > [host/client 分层与 API 网关](../platform/host-client-boundary.zh.md)。

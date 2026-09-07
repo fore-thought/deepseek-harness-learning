@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 委派内幕：命名注册表、Activation 驻留与四路远程传输
 
+[English](subagent-deep.md) | [中文](subagent-deep.zh.md)
+
 > 概览篇[委派与编排](../augmentation/subagent-orchestration.zh.md)停在接口词汇层；本篇下潜到
 > `packages/subagent/` 全组 + `packages/acp/` 的实现层：能力闸如何把关、续执行管理器靠什么
 > 推导状态、描述符怎么当"可恢复身份的唯一持久化"、四路进程外传输各交付什么协议边界。

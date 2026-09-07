@@ -1,6 +1,6 @@
 # DeepSeek Harness — Source Architecture Handbook
 
-English | [中文](README.zh.md)
+[English](README.md) | [中文](README.zh.md)
 
 A handbook that explains the architecture of **DeepSeek Harness** (`dsh`, an
 open-source LLM agent harness) strictly from its source code — written so a

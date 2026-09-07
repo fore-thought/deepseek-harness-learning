@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/{session,storage,checkpoint-policy,jsonl} 源码�
 
 # Persistence Formats & Crash Recovery
 
-English | [中文](persistence-crash-recovery.zh.md)
+[English](persistence-crash-recovery.md) | [中文](persistence-crash-recovery.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](persistence-crash-recovery.zh.md); once translated the

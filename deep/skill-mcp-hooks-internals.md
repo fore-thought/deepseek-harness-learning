@@ -9,7 +9,7 @@ evidence: "packages/{skill,mcp,hooks}/* src 直读 + docs/subsystems/skills.zh.m
 
 # Skills, MCP & Hooks Internals
 
-English | [中文](skill-mcp-hooks-internals.zh.md)
+[English](skill-mcp-hooks-internals.md) | [中文](skill-mcp-hooks-internals.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](skill-mcp-hooks-internals.zh.md); once translated the

@@ -9,7 +9,7 @@ evidence: "packages/{jobs,webhook}/* + docs/subsystems/{jobs,webhook}.zh.md；�
 
 # Background Tasks & Triggers
 
-English | [中文](background-and-triggers.zh.md)
+[English](background-and-triggers.md) | [中文](background-and-triggers.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](background-and-triggers.zh.md); once translated the

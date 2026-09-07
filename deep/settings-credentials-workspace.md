@@ -9,7 +9,7 @@ evidence: "packages/{settings/settings,settings/settings-file,credentials/creden
 
 # Settings Credentials Workspace
 
-English | [中文](settings-credentials-workspace.zh.md)
+[English](settings-credentials-workspace.md) | [中文](settings-credentials-workspace.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](settings-credentials-workspace.zh.md); once translated the

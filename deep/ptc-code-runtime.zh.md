@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # PTC 与 code-runtime：把工具面编成 SDK
 
+[English](ptc-code-runtime.md) | [中文](ptc-code-runtime.zh.md)
+
 > 本篇回答：模型从"逐个点名工具"切换为"写一段程序批量调工具"时，工具面如何坍缩成
 > `run_code` 一个入口、SDK 面怎么生成、程序在哪个盒子里跑、预算怎么算。衔接概览篇
 > [代码运行、LSP 与远程世界](../execution/remote-and-code-runtime.zh.md) 与[工具注册表与执行

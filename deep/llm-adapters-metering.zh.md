@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # LLM 适配器与计量内幕：注册表、流协议、重试与 token 锚点
 
+[English](llm-adapters-metering.md) | [中文](llm-adapters-metering.zh.md)
+
 > 本篇是 [LLM 层概览](../llm-layer/llm-vocabulary.zh.md) 的源码级深读展开：`ctx.llm` 注册表
 > 如何做到"换轨无缝隙"、流协议两条错误路径在哪个边界汇合、一次调用如何被钉死在同一个
 > 适配器代次上、重试为什么"先持久再等待"、token 计量如何用"provider usage 锚点 + 有符号

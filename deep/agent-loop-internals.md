@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/core/{agent,agent-loop,agent-default-model,agent-
 
 # Agent Loop Internals
 
-English | [中文](agent-loop-internals.zh.md)
+[English](agent-loop-internals.md) | [中文](agent-loop-internals.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](agent-loop-internals.zh.md); once translated the

@@ -8,7 +8,7 @@ updated: 2026-09-05
 
 # DSH 源码架构 · 主题导航
 
-[English](dsh-harness-index.md) | 中文
+[English](dsh-harness-index.md) | [中文](dsh-harness-index.zh.md)
 
 > 目的：把 DSH（TypeScript 实现的开源 LLM agent harness）的架构吃透——
 > 纯对象知识；如何用它再造什么，属其他主题。

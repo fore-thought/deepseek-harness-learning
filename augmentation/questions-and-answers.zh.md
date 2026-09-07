@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 人机问答与反馈：userQuestions 与 feedback
 
+[English](questions-and-answers.md) | [中文](questions-and-answers.zh.md)
+
 > `packages/interaction/` 是"工具/policy 与 UI 的**中立词汇层**"：提问、审批、
 > 命令、权限预设四件套都在这个组里，宿主与前端各持半边。
 

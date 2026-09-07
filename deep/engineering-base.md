@@ -9,7 +9,7 @@ evidence: "packages/util/* 13 包（2,525 行 src）+ packages/test-support/* 6 
 
 # Engineering Base
 
-English | [中文](engineering-base.zh.md)
+[English](engineering-base.md) | [中文](engineering-base.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](engineering-base.zh.md); once translated the

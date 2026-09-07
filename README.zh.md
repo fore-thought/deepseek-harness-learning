@@ -1,6 +1,6 @@
 # DeepSeek Harness 源码架构手册
 
-[English](README.md) | 中文
+[English](README.md) | [中文](README.zh.md)
 
 本手册严格依据 **DeepSeek Harness**（`dsh`，开源 LLM agent harness）源码，讲清它的
 架构设计——写给完全没摸过电脑的人读，读完你脑中能装下一张完整架构图，

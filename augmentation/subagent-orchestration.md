@@ -9,7 +9,7 @@ evidence: "packages/{subagent,workflow,experimental}/*；docs: subagent / workfl
 
 # Delegation & Orchestration
 
-English | [中文](subagent-orchestration.zh.md)
+[English](subagent-orchestration.md) | [中文](subagent-orchestration.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](subagent-orchestration.zh.md); once translated the

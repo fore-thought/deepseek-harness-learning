@@ -9,7 +9,7 @@ evidence: "packages/sdk/{protocol,server,client}/src 直读 + packages/bundle/{s
 
 # The SDK Trilogy
 
-English | [中文](sdk-embedding.zh.md)
+[English](sdk-embedding.md) | [中文](sdk-embedding.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](sdk-embedding.zh.md); once translated the

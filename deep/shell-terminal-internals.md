@@ -9,7 +9,7 @@ evidence: "packages/{shell,subprocess,terminal,guard}/* 源码直读 + 本 harne
 
 # Shell & Terminal Internals
 
-English | [中文](shell-terminal-internals.zh.md)
+[English](shell-terminal-internals.md) | [中文](shell-terminal-internals.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](shell-terminal-internals.zh.md); once translated the

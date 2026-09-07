@@ -9,7 +9,7 @@ evidence: "packages/{api,host,client,typert}/*；docs: api-gateway / web-client�
 
 # Host/Client Split & API Gateway
 
-English | [中文](host-client-boundary.zh.md)
+[English](host-client-boundary.md) | [中文](host-client-boundary.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](host-client-boundary.zh.md); once translated the

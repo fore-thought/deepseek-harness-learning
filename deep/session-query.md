@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/session-query/{session-query,session-query-sqlite
 
 # Session Query Internals
 
-English | [中文](session-query.zh.md)
+[English](session-query.md) | [中文](session-query.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](session-query.zh.md); once translated the

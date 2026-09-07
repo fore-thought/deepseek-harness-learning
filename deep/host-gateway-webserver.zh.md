@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # HTTP 载体与控制器分层：host/api 两组的装配侧内幕
 
+[English](host-gateway-webserver.md) | [中文](host-gateway-webserver.zh.md)
+
 > Host 侧从"一个监听端口"到"类型化 Remote 命名空间"之间，站着 `packages/host/`
 > 5 组与 `packages/api/` 5 组共十来个包。协议本体（`@Remote` 标记、生成管线、
 > 分发顺序、三流帧协议）已在 [typert 远程协议与代码生成](./typert-remote-protocol.zh.md)，

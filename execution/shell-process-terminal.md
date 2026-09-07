@@ -9,7 +9,7 @@ evidence: "packages/{subprocess,shell,terminal}/*；docs 同名页；子代理D"
 
 # Processes, Shell & Terminal
 
-English | [中文](shell-process-terminal.zh.md)
+[English](shell-process-terminal.md) | [中文](shell-process-terminal.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](shell-process-terminal.zh.md); once translated the

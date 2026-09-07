@@ -9,6 +9,8 @@ updated: 2026-09-04
 
 # 后台任务与外部触发：jobs 与 webhook
 
+[English](background-and-triggers.md) | [中文](background-and-triggers.zh.md)
+
 ## `ctx.jobs`：一切"跑了不止一拍"的东西
 
 - `JobRegistry` 抽象 seam + `LocalJobRegistry` provider；生产方是**四个工具**

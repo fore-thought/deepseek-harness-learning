@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 技能·MCP·hooks 内幕：目录经济学、桥接克制与双方言单引擎
 
+[English](skill-mcp-hooks-internals.md) | [中文](skill-mcp-hooks-internals.zh.md)
+
 > [概览篇](../augmentation/skills-mcp-hooks.zh.md) 的 skills/MCP/hooks 三节深读展开。
 > commands 归交互组承接篇、preset 归[提示词组装](./prompt-assembly-context.zh.md)、
 > extensions/identity 归热重启与交互两篇——本篇不越界。三块共享同一主题：

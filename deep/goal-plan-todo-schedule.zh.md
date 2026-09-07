@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 自组织四域深读：goal 轮次、plan 状态、todo 快照与持久提醒
 
+[English](goal-plan-todo-schedule.md) | [中文](goal-plan-todo-schedule.zh.md)
+
 > 本篇是[自组织概览](../augmentation/goal-plan-todo.zh.md)的深读展开：四种"跨轮次
 > 工作状态"各自的持久事件、严格折叠与不变量配套，重点是概览篇未展开的**栅栏
 > （fence）、边沿（edge）与权限（authority）矩阵**。证据基准：`packages/goal/`

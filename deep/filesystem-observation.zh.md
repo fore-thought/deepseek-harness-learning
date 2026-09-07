@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 文件系统深读：观测策略、本地后端与工具层内幕
 
+[English](filesystem-observation.md) | [中文](filesystem-observation.zh.md)
+
 > [概览篇](../execution/filesystem-and-sandbox.zh.md)画出了 fs seam 与沙箱的地图，
 > [沙箱执行内幕](./sandbox-execution.zh.md)走读了内核边界那半边。本篇补齐剩下的两大块：
 > **fs-local 后端的身份/并发/原子发布机制**，以及**观测策略插件与 5 个模型工具的实现细节**。

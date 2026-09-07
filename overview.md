@@ -9,7 +9,7 @@ evidence: "DSH 仓库（本机源码 checkout）相对路径直读"
 
 # DSH Source Architecture Overview
 
-English | [中文](overview.zh.md)
+[English](overview.md) | [中文](overview.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](overview.zh.md); once translated the

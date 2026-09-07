@@ -9,7 +9,7 @@ evidence: "packages/boot/{app-boot,cmdline}/src 直读 + packages/bundle/* patch
 
 # Profile Assembly & Six Bundles
 
-English | [中文](boot-bundles.zh.md)
+[English](boot-bundles.md) | [中文](boot-bundles.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](boot-bundles.zh.md); once translated the

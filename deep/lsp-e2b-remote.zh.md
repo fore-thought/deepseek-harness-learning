@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # LSP 与 E2B 远程世界：封闭导航词汇与同一世界不变式
 
+[English](lsp-e2b-remote.md) | [中文](lsp-e2b-remote.zh.md)
+
 > 本篇回答三个问题：LSP 导航能力如何被压成 4 操作的闭合词汇表、宿主如何对抗
 > 挂死与恶意语言服务器；E2B 三包如何把文件系统+shell+PTY 整体投影到一次性云
 > 沙箱；以及[总览](../overview.zh.md)设计决定 3（"seam 指向远程=整组搬家"）的接线

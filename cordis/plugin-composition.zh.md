@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 插件组装与启动：从 YAML 到运行中的产品
 
+[English](plugin-composition.md) | [中文](plugin-composition.zh.md)
+
 > [Cordis 内核](./cordis-kernel.zh.md) 回答"插件是什么"；本页回答"一次 `dsh web` 启动时，
 > 那棵插件树是怎么被**配置**出来、又是怎么被**装载**起来的"。
 

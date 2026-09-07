@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # host/client 分层与 API 网关
 
+[English](host-client-boundary.md) | [中文](host-client-boundary.zh.md)
+
 > **Host** = 一个 Node 进程（`dsh` 起的 Cordis 树）：拥有权威状态、持久化、
 > mutation 顺序。**Client** = 浏览器内**另一个独立 Cordis 应用**：只维护 Host 状态的
 > 镜像与 UI。两侧不是"一个进程分两半"，而是**两棵树通过窄线对话**——这是 DSH Web 版

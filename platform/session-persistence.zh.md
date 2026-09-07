@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 会话持久化与存储：日志落盘的工程细节
 
+[English](session-persistence.md) | [中文](session-persistence.zh.md)
+
 ## SessionPersistence seam（`ctx.sessionPersistence`）
 
 - 接口：`create/open/stat/list` + 逐会话 `SessionHandle`

@@ -9,7 +9,7 @@ evidence: "packages/llm/* + docs/subsystems/llm-streaming.zh.md；子代理C调�
 
 # The LLM Layer
 
-English | [中文](llm-vocabulary.zh.md)
+[English](llm-vocabulary.md) | [中文](llm-vocabulary.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](llm-vocabulary.zh.md); once translated the

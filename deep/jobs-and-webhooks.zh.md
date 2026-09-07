@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 作业注册表与 Webhook 运行时：first-wins 结算与 fire-and-forget 的完整边界
 
+[English](jobs-and-webhooks.md) | [中文](jobs-and-webhooks.zh.md)
+
 > 两组 seam 一篇收口：`ctx.jobs`（一切"跑了不止一拍"的东西的注册表）与
 > `ctx.webhookRuntime`（外部世界进 inbox 的免提门）。它们是
 > [后台任务与外部触发](../augmentation/background-and-triggers.zh.md) 两节的源码级展开。

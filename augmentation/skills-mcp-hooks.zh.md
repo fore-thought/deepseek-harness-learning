@@ -9,6 +9,8 @@ updated: 2026-09-04
 
 # 能力供给：skills、commands、MCP、hooks、preset
 
+[English](skills-mcp-hooks.md) | [中文](skills-mcp-hooks.zh.md)
+
 > 这一组回答"模型/人类的能力从哪来、怎么挂上"。**skill=按需加载的提示词包，
 > command=人类斜杠孔，MCP=外部工具桥，hooks=外部事件桥，preset=整棵子树套餐**。
 

@@ -9,7 +9,7 @@ evidence: "packages/{jobs,jobs-local,tool-jobs,webhook,webhook-github} src 全�
 
 # Background Jobs & Webhooks
 
-English | [中文](jobs-and-webhooks.zh.md)
+[English](jobs-and-webhooks.md) | [中文](jobs-and-webhooks.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](jobs-and-webhooks.zh.md); once translated the

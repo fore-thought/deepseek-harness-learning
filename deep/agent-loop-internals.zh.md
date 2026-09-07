@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # Agent 主干内幕：turn/step 状态机、受保护流水线与作用域链
 
+[English](agent-loop-internals.md) | [中文](agent-loop-internals.zh.md)
+
 > 本篇是主干概览三篇——[会话事件日志](../agent-runtime/session-event-log.zh.md)、
 > [turn/step 主循环](../agent-runtime/turn-step-loop.zh.md)、
 > [工具注册表与执行流水线](../agent-runtime/tools-pipeline.zh.md)——的 deep 档收口：

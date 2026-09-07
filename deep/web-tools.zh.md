@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # Web 工具深读：一个 seam、两类操作、四路提供方
 
+[English](web-tools.md) | [中文](web-tools.zh.md)
+
 > `web_search`/`web_fetch` 是模型日常最高频的外部信息通道，但 Web 在 DSH 里是
 > **可选能力**、不属 agent loop 主干——词汇定义在 `packages/web/web` 而非 core。
 > 本篇是 [上下文工程](../llm-layer/context-engineering.zh.md) 与

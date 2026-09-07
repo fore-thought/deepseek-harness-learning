@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 工程基建：util、测试支持与原生侧的机制收口
 
+[English](engineering-base.md) | [中文](engineering-base.zh.md)
+
 > 本篇收口 harness 的"非领域"地基：`packages/util/` 13 包（任务口径常说 12，实测目录 13 个
 > [MEASURED]）、`packages/test-support/` 6 包、`native/landlock-run` 启动器包族、
 > `python/` 双 wheel。不逐包记流水账，按**机制**组织——这些包全部是"库不是插件"：

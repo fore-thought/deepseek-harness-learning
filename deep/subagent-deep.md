@@ -9,7 +9,7 @@ evidence: "packages/{subagent/*,acp/acp} 源码直读+真机见证；docs/subsys
 
 # Delegation Internals
 
-English | [中文](subagent-deep.zh.md)
+[English](subagent-deep.md) | [中文](subagent-deep.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](subagent-deep.zh.md); once translated the

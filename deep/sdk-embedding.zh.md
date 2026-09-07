@@ -11,6 +11,8 @@ updated: 2026-09-05
 
 # SDK 三件套：进程外嵌入的正门
 
+[English](sdk-embedding.md) | [中文](sdk-embedding.zh.md)
+
 > DSH 把整个 harness 塞进别的进程，靠的不是库依赖，而是**子进程 + 线路协议**：
 > `packages/sdk/` 定义一套行分隔 JSON-RPC（protocol）、一个跑在插件树里的
 > stdio 服务端插件（server）、一个管生老病死的 TypeScript 客户端（client）。

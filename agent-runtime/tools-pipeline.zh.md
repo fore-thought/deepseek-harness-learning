@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 工具注册表与执行流水线
 
+[English](tools-pipeline.md) | [中文](tools-pipeline.zh.md)
+
 > `ctx.tools`（`ToolRuntime`，`packages/core/tools`）管两件事：
 > **注册表**（工具 schema 供提示词组装）与**带把关的执行流水线**（每次工具调用过六道闸）。
 > 工具是面向模型的能力的统一注册面——加一项能力 = 在 `ctx.tools` 上注册。

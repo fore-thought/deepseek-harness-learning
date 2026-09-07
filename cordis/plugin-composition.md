@@ -9,7 +9,7 @@ evidence: "vendor/{loader,include,hmr}、packages/{boot,bundle}/*；docs/archite
 
 # Plugin Composition & Boot
 
-English | [中文](plugin-composition.zh.md)
+[English](plugin-composition.md) | [中文](plugin-composition.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](plugin-composition.zh.md); once translated the

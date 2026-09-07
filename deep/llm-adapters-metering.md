@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/llm/* 七包 src 源码直读 + docs/subsystems/{
 
 # LLM Adapters & Metering
 
-English | [中文](llm-adapters-metering.zh.md)
+[English](llm-adapters-metering.md) | [中文](llm-adapters-metering.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](llm-adapters-metering.zh.md); once translated the

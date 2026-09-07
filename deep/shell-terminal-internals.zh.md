@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # Shell 与终端内幕：四象限执行器、spill 硬化与 PTY 就绪协议
 
+[English](shell-terminal-internals.md) | [中文](shell-terminal-internals.zh.md)
+
 > [概览篇](../execution/shell-process-terminal.zh.md) 讲接缝词汇与分层；本篇下钻一层：
 > bash/pwsh 两个执行器家族如何"逐调用镜像"、subprocess 的零配置与环境清洗如何兑现、
 > 持久 PTY 的就绪协议是什么、guard 双保险挂在流水线哪里。证据 = 源码直读 +

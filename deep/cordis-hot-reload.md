@@ -9,7 +9,7 @@ evidence: "DSH 仓库源码直读：vendor/{cordis,loader,include,hmr}/src、pac
 
 # Cordis Hot Restart & Hot Reload
 
-English | [中文](cordis-hot-reload.zh.md)
+[English](cordis-hot-reload.md) | [中文](cordis-hot-reload.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](cordis-hot-reload.zh.md); once translated the

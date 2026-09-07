@@ -9,7 +9,7 @@ evidence: "packages/interaction/{commands,permission-presets,tool-ask-user,user-
 
 # Interaction, Approvals & Permission Tiers
 
-English | [中文](interaction-approval-feedback.zh.md)
+[English](interaction-approval-feedback.md) | [中文](interaction-approval-feedback.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](interaction-approval-feedback.zh.md); once translated the

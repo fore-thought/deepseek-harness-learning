@@ -9,7 +9,7 @@ evidence: "apps/{cli,web}、packages/{sdk,acp,host,client/web} + docs；子代�
 
 # Application Shells
 
-English | [中文](web-cli-boot.zh.md)
+[English](web-cli-boot.md) | [中文](web-cli-boot.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](web-cli-boot.zh.md); once translated the

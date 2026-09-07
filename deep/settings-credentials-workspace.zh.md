@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 配置面深读：层叠解析、热轮换、凭据账本与工作区登记
 
+[English](settings-credentials-workspace.md) | [中文](settings-credentials-workspace.zh.md)
+
 > 本篇是[配置面概览](../augmentation/settings-and-credentials.zh.md)的源码级展开，回答四个问题：
 > 配置树如何逐层解析、拒陈旧写、保注释地落盘；机密如何"住在配置之外"——引用、热轮换、
 > 分层信任与脱敏；以及"配置面谁也供不出的凭据"从哪来（authorization）。三者脚下的

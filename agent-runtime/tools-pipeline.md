@@ -9,7 +9,7 @@ evidence: "packages/core/tools/src；docs: tool-execution-pipeline / tools / sco
 
 # Tool Registry & Execution Pipeline
 
-English | [中文](tools-pipeline.zh.md)
+[English](tools-pipeline.md) | [中文](tools-pipeline.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](tools-pipeline.zh.md); once translated the

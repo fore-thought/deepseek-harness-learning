@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/core/tools/src/{ptc.ts,index.ts}、packages/agent
 
 # PTC & code-runtime Internals
 
-English | [中文](ptc-code-runtime.zh.md)
+[English](ptc-code-runtime.md) | [中文](ptc-code-runtime.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](ptc-code-runtime.zh.md); once translated the

@@ -9,7 +9,7 @@ evidence: "packages/{session,storage}/* + docs/subsystems/{persistence,storage}.
 
 # Session Persistence & Storage
 
-English | [中文](session-persistence.zh.md)
+[English](session-persistence.md) | [中文](session-persistence.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](session-persistence.zh.md); once translated the

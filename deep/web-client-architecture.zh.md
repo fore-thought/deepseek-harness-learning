@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # Web Client：浏览器里的第二个 Cordis 应用
 
+[English](web-client-architecture.md) | [中文](web-client-architecture.zh.md)
+
 > 总览全景图里那句"Web Client（浏览器内独立 Cordis 应用）"不是修辞：浏览器端有**自己的**
 > 插件树、自己的模块系统、自己的服务注入与事件装配。本篇按架构级走读
 > `packages/client/` 全组 **45 包** [MEASURED]（38 个 ui-* + 7 个底座，

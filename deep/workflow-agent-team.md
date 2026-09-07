@@ -9,7 +9,7 @@ evidence: "packages/{workflow,experimental}/* 源码直读 + docs/subsystems/{wo
 
 # Workflow Engine & Agent Teams
 
-English | [中文](workflow-agent-team.zh.md)
+[English](workflow-agent-team.md) | [中文](workflow-agent-team.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](workflow-agent-team.zh.md); once translated the

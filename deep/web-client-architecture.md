@@ -9,7 +9,7 @@ evidence: "packages/client/*（45 包）package.json 全量清点 + docs/subsyst
 
 # Web Client Browser Architecture
 
-English | [中文](web-client-architecture.zh.md)
+[English](web-client-architecture.md) | [中文](web-client-architecture.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](web-client-architecture.zh.md); once translated the

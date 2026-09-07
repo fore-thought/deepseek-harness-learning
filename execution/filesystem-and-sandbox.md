@@ -9,7 +9,7 @@ evidence: "packages/{fs,sandbox}/* + docs/subsystems/{filesystem,sandbox}.zh.md�
 
 # Filesystem & Sandbox
 
-English | [中文](filesystem-and-sandbox.zh.md)
+[English](filesystem-and-sandbox.md) | [中文](filesystem-and-sandbox.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](filesystem-and-sandbox.zh.md); once translated the

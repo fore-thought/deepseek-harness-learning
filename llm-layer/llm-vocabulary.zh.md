@@ -9,6 +9,8 @@ updated: 2026-09-04
 
 # LLM 层：统一词汇与适配器
 
+[English](llm-vocabulary.md) | [中文](llm-vocabulary.zh.md)
+
 > `packages/llm/llm` 定义"对话词汇表"（Message/ContentBlock/StreamChunk）与
 > 适配器 seam（`ctx.llm` = `LlmRuntime`）；提供方适配器（`llm-deepseek`、
 > `llm-pi-ai`）与重试（`llm-retry`）都是插件。**agent loop 依赖的是这个包，

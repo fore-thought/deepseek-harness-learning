@@ -9,6 +9,8 @@ updated: 2026-09-04
 
 # 委派与编排：subagent、workflow、Ralph、agent team
 
+[English](subagent-orchestration.md) | [中文](subagent-orchestration.zh.md)
+
 > `ctx.subagents` 是"把一轮工作交给别的 agent"的统一 seam——**同一个接口后面
 > 从进程内新建子 agent 到委派给另一个产品（Claude Code/Codex/任意 ACP）**。
 > 文档明示：subagent 与 bash 一样是**可选能力，不属于 agent loop**。

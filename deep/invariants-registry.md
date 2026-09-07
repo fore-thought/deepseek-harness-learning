@@ -9,7 +9,7 @@ evidence: "packages/runtime-diagnostics/invariants/src/index.ts 全读 + 全仓 
 
 # Invariants Registry
 
-English | [中文](invariants-registry.zh.md)
+[English](invariants-registry.md) | [中文](invariants-registry.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](invariants-registry.zh.md); once translated the

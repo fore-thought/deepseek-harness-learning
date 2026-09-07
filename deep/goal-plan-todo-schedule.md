@@ -9,7 +9,7 @@ evidence: "packages/{goal,plan,todo,schedule} src 全量直读 + docs/subsystems
 
 # Self-Organization: Four Domains
 
-English | [中文](goal-plan-todo-schedule.zh.md)
+[English](goal-plan-todo-schedule.md) | [中文](goal-plan-todo-schedule.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](goal-plan-todo-schedule.zh.md); once translated the

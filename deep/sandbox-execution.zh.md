@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 沙箱执行内幕：仲裁、令牌与拒绝分类
 
+[English](sandbox-execution.md) | [中文](sandbox-execution.zh.md)
+
 > 概览篇 [文件系统与沙箱](../execution/filesystem-and-sandbox.zh.md) 画出了 seam 地图；本篇回答它的下游三问：
 > 多后端如何仲裁、denial 与 runner 失败如何分类、各后端把"限制"兑现到什么程度。
 > 证据基线：DSH 仓库源码直读 + 本机真机实测（即在 windows-acl 沙箱 workspace-write 内）；

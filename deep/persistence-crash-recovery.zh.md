@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 持久化格式与崩溃恢复：zstd 帧、撕裂尾与写门
 
+[English](persistence-crash-recovery.md) | [中文](persistence-crash-recovery.zh.md)
+
 > 本篇回答三个问题：会话日志在磁盘上到底是什么容器、每一帧怎么写出去、崩溃留下的
 > 撕裂尾如何被修成语义配平的日志。它是[会话持久化概览](../platform/session-persistence.zh.md)
 > 中 SessionPersistence seam 一节的深读展开。证据基准 = DSH 仓库源码直读 + 本机真机实测：

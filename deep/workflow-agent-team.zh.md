@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 工作流引擎与 Agent Teams：脚本编排、Ralph 循环与持久协作
 
+[English](workflow-agent-team.md) | [中文](workflow-agent-team.zh.md)
+
 > 本篇是[委派与编排](../augmentation/subagent-orchestration.zh.md)概览篇 workflow/Ralph/agent-team
 > 三节的深读展开：`packages/workflow/` 4 包全量源码走读 + `packages/experimental/` 8 包承接
 > （agent-team 组源码级；其余以官方 README/治理规则承接，深度声明见「诚实边界」）。

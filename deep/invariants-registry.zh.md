@@ -11,6 +11,8 @@ updated: 2026-09-05
 
 # 运行时不变量：包自有断言与影子重建
 
+[English](invariants-registry.md) | [中文](invariants-registry.zh.md)
+
 > 总览设计决定 2「**模型可见即已记录**」说"并有运行时不变量断言"——本篇就是那个
 > 断言层的执法机制：一个 180 行、零产品导入的注册表服务（`ctx.invariants`），
 > 加上 **39 个包自有 `./invariant` 伴生插件**（合计 ≈3,131 行 [MEASURED，

@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/session/* 源码直读 + docs/subsystems/{session
 
 # Projections, Titles, Telemetry & Format Generations
 
-English | [中文](session-projection-telemetry.zh.md)
+[English](session-projection-telemetry.md) | [中文](session-projection-telemetry.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](session-projection-telemetry.zh.md); once translated the

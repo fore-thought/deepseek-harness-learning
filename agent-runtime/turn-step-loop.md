@@ -9,7 +9,7 @@ evidence: "packages/core/{agent,agent-loop}/src；docs: agent-lifecycle / core�
 
 # Turn/Step Main Loop
 
-English | [中文](turn-step-loop.zh.md)
+[English](turn-step-loop.md) | [中文](turn-step-loop.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](turn-step-loop.zh.md); once translated the

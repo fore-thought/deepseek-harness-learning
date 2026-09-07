@@ -9,6 +9,8 @@ updated: 2026-09-04
 
 # 应用壳：CLI 启动、浏览器 boot、SDK 与 ACP
 
+[English](web-cli-boot.md) | [中文](web-cli-boot.zh.md)
+
 ## 一个 CLI，四个孔
 
 `apps/cli` 是**唯一 bin**（包名 `dsh`）：launcher 实为**三模式分发**

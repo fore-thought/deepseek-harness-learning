@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 会话事件日志：整个 harness 的唯一真源
 
+[English](session-event-log.md) | [中文](session-event-log.zh.md)
+
 > DSH 把"对话历史"做成**仅追加事件日志**（event sourcing）：`ctx.sessions`
 > （`SessionStore`）持有内存会话，每条事实是一个带序号的 `SessionEvent`。
 > 模型看到的历史、UI 渲染、持久化、fork/恢复、压缩改写、遥测——全部从这条流**投影**派生。

@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # 上下文工程：计量、压缩、附件与溢出
 
+[English](context-engineering.md) | [中文](context-engineering.zh.md)
+
 > 都是**能力 seam**（可选能力，不属于循环主干）：计量器、压缩引擎、附件仓、溢出仓。
 > 循环与插件把它们当服务消费，全部可被 patch 行替换。
 

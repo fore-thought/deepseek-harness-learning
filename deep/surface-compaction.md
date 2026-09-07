@@ -9,7 +9,7 @@ evidence: "packages/{core/session,core/agent-loop,compaction/*,session/*,llm/tok
 
 # Surface Rewriting & Compaction
 
-English | [中文](surface-compaction.zh.md)
+[English](surface-compaction.md) | [中文](surface-compaction.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](surface-compaction.zh.md); once translated the

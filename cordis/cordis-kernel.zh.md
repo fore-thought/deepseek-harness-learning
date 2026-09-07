@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # Cordis 内核：上下文、服务与纤绳（fiber）
 
+[English](cordis-kernel.md) | [中文](cordis-kernel.zh.md)
+
 > Cordis（`vendor/cordis/`，`@deepseek-ai/cordis` v4.0.2）是 DSH 的底层插件框架。
 > 内核只有 9 个源文件（最大 `fiber.ts` ≈25KB），但整个"一切皆插件"架构的地基全在这。
 > 术语：**插件**（plugin）= 一段挂载进上下文的安装代码；**服务**（service）= 挂在

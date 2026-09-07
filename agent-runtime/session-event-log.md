@@ -9,7 +9,7 @@ evidence: "packages/core/session/src 直读 + docs/subsystems/session.zh.md + �
 
 # Session Event Log
 
-English | [中文](session-event-log.zh.md)
+[English](session-event-log.md) | [中文](session-event-log.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](session-event-log.zh.md); once translated the

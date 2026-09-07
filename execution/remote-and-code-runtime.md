@@ -9,7 +9,7 @@ evidence: "packages/{code-runtime,lsp,e2b}/* + docs/subsystems/{code-runtime,lsp
 
 # Code Runtime, LSP & Remote Worlds
 
-English | [中文](remote-and-code-runtime.zh.md)
+[English](remote-and-code-runtime.md) | [中文](remote-and-code-runtime.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](remote-and-code-runtime.zh.md); once translated the

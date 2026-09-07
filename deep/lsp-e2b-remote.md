@@ -9,7 +9,7 @@ evidence: "DSH 仓库 packages/{lsp/e2b} 六包 src 直读 + docs/{subsystems/ls
 
 # LSP & the E2B Remote World
 
-English | [中文](lsp-e2b-remote.zh.md)
+[English](lsp-e2b-remote.md) | [中文](lsp-e2b-remote.zh.md)
 
 > Placeholder: the English translation of this page is pending. The source
 > of truth is the [Chinese version](lsp-e2b-remote.zh.md); once translated the

@@ -9,6 +9,8 @@ updated: 2026-09-05
 
 # turn/step 主循环：agent loop 的心脏
 
+[English](turn-step-loop.md) | [中文](turn-step-loop.zh.md)
+
 > `ctx.agentLoop`（包 `packages/core/agent-loop`）是默认驱动器；
 > `ctx.agents`（包 `packages/core/agent`）只是**接口 + 注册表 + 事件词汇**。
 > 消费方（UI、远程、subagent 提供方）都面向 `Agent` 句柄编程，不依赖循环包——
