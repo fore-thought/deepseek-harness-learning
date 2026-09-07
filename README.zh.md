@@ -21,28 +21,36 @@
 
 ## 结构
 
-- 全景：[总览](./overview.zh.md) · [主题导航](./dsh-harness-index.zh.md)
-- 框架地基：[Cordis 内核](./cordis/cordis-kernel.zh.md) ·
-  [插件组装与启动](./cordis/plugin-composition.zh.md)
-- Agent 主干：[会话事件日志](./agent-runtime/session-event-log.zh.md) ·
-  [turn/step 主循环](./agent-runtime/turn-step-loop.zh.md) ·
-  [工具注册表与执行流水线](./agent-runtime/tools-pipeline.zh.md)
-- 模型层：[LLM 层](./llm-layer/llm-vocabulary.zh.md) ·
-  [上下文工程](./llm-layer/context-engineering.zh.md)
-- 平台：[会话持久化与存储](./platform/session-persistence.zh.md) ·
-  [host/client 分层与 API 网关](./platform/host-client-boundary.zh.md) ·
-  [应用壳](./platform/web-cli-boot.zh.md)
-- 执行世界：[文件系统与沙箱](./execution/filesystem-and-sandbox.zh.md) ·
-  [进程、shell 与终端](./execution/shell-process-terminal.zh.md) ·
-  [代码运行、LSP 与远程世界](./execution/remote-and-code-runtime.zh.md)
-- 增强层：[委派与编排](./augmentation/subagent-orchestration.zh.md) ·
-  [能力供给](./augmentation/skills-mcp-hooks.zh.md) ·
-  [自组织](./augmentation/goal-plan-todo.zh.md) ·
-  [人机问答与反馈](./augmentation/questions-and-answers.zh.md) ·
-  [后台任务与外部触发](./augmentation/background-and-triggers.zh.md) ·
-  [配置面](./augmentation/settings-and-credentials.zh.md)
-- 源码级深读（29 篇，按包组簇承接）：
-  [主题导航承接表](./dsh-harness-index.zh.md#专题深读deep29-篇--组级全覆盖)
+- 全景与导航
+  - [DSH 源码架构总览](./overview.zh.md)
+  - [dsh-harness 主题导航](./dsh-harness-index.zh.md)
+- 框架地基
+  - [Cordis 内核](./cordis/cordis-kernel.zh.md)
+  - [插件组装与启动](./cordis/plugin-composition.zh.md)
+- Agent 主干
+  - [会话事件日志](./agent-runtime/session-event-log.zh.md)
+  - [turn/step 主循环](./agent-runtime/turn-step-loop.zh.md)
+  - [工具注册表与执行流水线](./agent-runtime/tools-pipeline.zh.md)
+- 模型层
+  - [LLM 层：统一词汇与适配器](./llm-layer/llm-vocabulary.zh.md)
+  - [上下文工程](./llm-layer/context-engineering.zh.md)
+- 平台
+  - [会话持久化与存储](./platform/session-persistence.zh.md)
+  - [host/client 分层与 API 网关](./platform/host-client-boundary.zh.md)
+  - [应用壳](./platform/web-cli-boot.zh.md)
+- 执行世界
+  - [文件系统与沙箱：一个执行世界](./execution/filesystem-and-sandbox.zh.md)
+  - [进程、shell 与终端](./execution/shell-process-terminal.zh.md)
+  - [代码运行、LSP 与远程世界](./execution/remote-and-code-runtime.zh.md)
+- 增强层
+  - [委派与编排：subagent、workflow、Ralph、agent team](./augmentation/subagent-orchestration.zh.md)
+  - [能力供给：skills、commands、MCP、hooks、preset](./augmentation/skills-mcp-hooks.zh.md)
+  - [自组织：goal、plan mode、todo、schedule](./augmentation/goal-plan-todo.zh.md)
+  - [人机问答与反馈：userQuestions 与 feedback](./augmentation/questions-and-answers.zh.md)
+  - [后台任务与外部触发：jobs 与 webhook](./augmentation/background-and-triggers.zh.md)
+  - [配置面：settings、credentials、workspace](./augmentation/settings-and-credentials.zh.md)
+- 源码级深读（29 篇，按包组簇承接）
+  - 完整承接表见 [dsh-harness 主题导航](./dsh-harness-index.zh.md)
 
 ## 许可
 

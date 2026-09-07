@@ -25,28 +25,36 @@ map complete enough to design a harness of your own.
 
 ## Structure
 
-- Panorama: [overview](./overview.md) · [topic navigation](./dsh-harness-index.md)
-- Framework base: [The Cordis Kernel](./cordis/cordis-kernel.md) ·
-  [Plugin Composition & Boot](./cordis/plugin-composition.md)
-- Agent backbone: [Session Event Log](./agent-runtime/session-event-log.md) ·
-  [Turn/Step Main Loop](./agent-runtime/turn-step-loop.md) ·
-  [Tool Registry & Execution Pipeline](./agent-runtime/tools-pipeline.md)
-- Model layer: [The LLM Layer](./llm-layer/llm-vocabulary.md) ·
-  [Context Engineering](./llm-layer/context-engineering.md)
-- Platform: [Session Persistence & Storage](./platform/session-persistence.md) ·
-  [Host/Client Split & API Gateway](./platform/host-client-boundary.md) ·
-  [Application Shells](./platform/web-cli-boot.md)
-- Execution world: [Filesystem & Sandbox](./execution/filesystem-and-sandbox.md) ·
-  [Processes, Shell & Terminal](./execution/shell-process-terminal.md) ·
-  [Code Runtime, LSP & Remote Worlds](./execution/remote-and-code-runtime.md)
-- Augmentation: [Delegation & Orchestration](./augmentation/subagent-orchestration.md) ·
-  [Capability Supply](./augmentation/skills-mcp-hooks.md) ·
-  [Self-Organization](./augmentation/goal-plan-todo.md) ·
-  [Q&A & Feedback](./augmentation/questions-and-answers.md) ·
-  [Background Tasks & Triggers](./augmentation/background-and-triggers.md) ·
-  [Settings Plane](./augmentation/settings-and-credentials.md)
-- Source-level deep dives (29, one per package group cluster):
-  [topic navigation table](./dsh-harness-index.md#source-level-deep-dives-29--full-coverage)
+- Panorama & navigation
+  - [DSH Source Architecture Overview](./overview.md)
+  - [Topic Navigation](./dsh-harness-index.md)
+- Framework base
+  - [The Cordis Kernel](./cordis/cordis-kernel.md)
+  - [Plugin Composition & Boot](./cordis/plugin-composition.md)
+- Agent backbone
+  - [Session Event Log](./agent-runtime/session-event-log.md)
+  - [Turn/Step Main Loop](./agent-runtime/turn-step-loop.md)
+  - [Tool Registry & Execution Pipeline](./agent-runtime/tools-pipeline.md)
+- Model layer
+  - [The LLM Layer](./llm-layer/llm-vocabulary.md)
+  - [Context Engineering](./llm-layer/context-engineering.md)
+- Platform
+  - [Session Persistence & Storage](./platform/session-persistence.md)
+  - [Host/Client Split & API Gateway](./platform/host-client-boundary.md)
+  - [Application Shells](./platform/web-cli-boot.md)
+- Execution world
+  - [Filesystem & Sandbox](./execution/filesystem-and-sandbox.md)
+  - [Processes, Shell & Terminal](./execution/shell-process-terminal.md)
+  - [Code Runtime, LSP & Remote Worlds](./execution/remote-and-code-runtime.md)
+- Augmentation
+  - [Delegation & Orchestration](./augmentation/subagent-orchestration.md)
+  - [Capability Supply](./augmentation/skills-mcp-hooks.md)
+  - [Self-Organization](./augmentation/goal-plan-todo.md)
+  - [Q&A & Feedback](./augmentation/questions-and-answers.md)
+  - [Background Tasks & Triggers](./augmentation/background-and-triggers.md)
+  - [Settings Plane](./augmentation/settings-and-credentials.md)
+- Source-level deep dives (29, one per package-group cluster)
+  - [Topic Navigation](./dsh-harness-index.md) carries the full coverage table
 
 ## License
 
