@@ -8,9 +8,8 @@
 
 - 第三方独立作品，与 DeepSeek 官方无关。
 - 基于 2026-09 源码 checkout；每条结论都带源码仓库相对路径证据，可复核。
-- 语言配对：每个页面有英文文件（`foo.md`，主语言）与中文文件（`foo.zh.md`），
-  排版与内容严格一致；开关行固定在标题正下方。中文单语页（英文翻译未到）暂不
-  放开关，英文版落地当批补齐。
+- 每个页面都有两份：`foo.md`（英文）与 `foo.zh.md`（中文），同目录、排版与内容
+  严格一致。仍标 `status: draft` 且带 i18n-stub 标签的英文页为占位页，待翻译。
 
 ## 状态
 
@@ -22,16 +21,28 @@
 
 ## 结构
 
-| 分区 | 英文 | 中文 |
-|---|---|---|
-| 全景与导航 | `overview.md` | [overview.zh.md](./overview.zh.md) |
-| 框架地基（插件内核） | `cordis/` | 同名 `.zh.md` |
-| Agent 主干（循环·工具·提示词） | `agent-runtime/` | 同上 |
-| 模型层（适配·上下文） | `llm-layer/` | 同上 |
-| 平台（网关·持久化·客户端） | `platform/` | 同上 |
-| 执行世界（fs·沙箱·shell） | `execution/` | 同上 |
-| 增强层（子代理·技能·目标） | `augmentation/` | 同上 |
-| 源码级深读（29 篇） | `deep/` | 同上 |
+- 全景：[总览](./overview.zh.md) · [主题导航](./dsh-harness-index.zh.md)
+- 框架地基：[Cordis 内核](./cordis/cordis-kernel.zh.md) ·
+  [插件组装与启动](./cordis/plugin-composition.zh.md)
+- Agent 主干：[会话事件日志](./agent-runtime/session-event-log.zh.md) ·
+  [turn/step 主循环](./agent-runtime/turn-step-loop.zh.md) ·
+  [工具注册表与执行流水线](./agent-runtime/tools-pipeline.zh.md)
+- 模型层：[LLM 层](./llm-layer/llm-vocabulary.zh.md) ·
+  [上下文工程](./llm-layer/context-engineering.zh.md)
+- 平台：[会话持久化与存储](./platform/session-persistence.zh.md) ·
+  [host/client 分层与 API 网关](./platform/host-client-boundary.zh.md) ·
+  [应用壳](./platform/web-cli-boot.zh.md)
+- 执行世界：[文件系统与沙箱](./execution/filesystem-and-sandbox.zh.md) ·
+  [进程、shell 与终端](./execution/shell-process-terminal.zh.md) ·
+  [代码运行、LSP 与远程世界](./execution/remote-and-code-runtime.zh.md)
+- 增强层：[委派与编排](./augmentation/subagent-orchestration.zh.md) ·
+  [能力供给](./augmentation/skills-mcp-hooks.zh.md) ·
+  [自组织](./augmentation/goal-plan-todo.zh.md) ·
+  [人机问答与反馈](./augmentation/questions-and-answers.zh.md) ·
+  [后台任务与外部触发](./augmentation/background-and-triggers.zh.md) ·
+  [配置面](./augmentation/settings-and-credentials.zh.md)
+- 源码级深读（29 篇，按包组簇承接）：
+  [主题导航承接表](./dsh-harness-index.zh.md#专题深读deep29-篇--组级全覆盖)
 
 ## 许可
 
